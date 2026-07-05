@@ -34,7 +34,33 @@ enum SupabaseConfig {
     }
 }
 
+/// Our tables use snake_case columns (owner_id, created_at, …) while the Swift
+/// models use camelCase. Supabase's default PostgREST coders only configure a
+/// date strategy and do NOT convert keys, so we layer snake_case conversion on
+/// top while preserving Supabase's date handling.
+private let databaseDecoder: JSONDecoder = {
+    let base = PostgrestClient.Configuration.jsonDecoder
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = base.dateDecodingStrategy
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    return decoder
+}()
+
+private let databaseEncoder: JSONEncoder = {
+    let base = PostgrestClient.Configuration.jsonEncoder
+    let encoder = JSONEncoder()
+    encoder.dateEncodingStrategy = base.dateEncodingStrategy
+    encoder.keyEncodingStrategy = .convertToSnakeCase
+    return encoder
+}()
+
 let supabase = SupabaseClient(
     supabaseURL: SupabaseConfig.url,
-    supabaseKey: SupabaseConfig.anonKey
+    supabaseKey: SupabaseConfig.anonKey,
+    options: SupabaseClientOptions(
+        db: SupabaseClientOptions.DatabaseOptions(
+            encoder: databaseEncoder,
+            decoder: databaseDecoder
+        )
+    )
 )

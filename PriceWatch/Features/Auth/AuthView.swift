@@ -30,6 +30,14 @@ struct AuthView: View {
                 .buttonStyle(.borderedProminent)
                 .disabled(email.isEmpty || viewModel.isLoading)
 
+                Button("Ohne Anmeldung testen (Gast)") {
+                    Task { await viewModel.continueAsGuest() }
+                }
+                .buttonStyle(.plain)
+                .font(.footnote)
+                .foregroundStyle(.blue)
+                .disabled(viewModel.isLoading)
+
             case .enterCode(let sentTo):
                 Text("Code an \(sentTo) gesendet")
                     .font(.footnote)
