@@ -120,12 +120,24 @@ create policy "shopping_lists: owner can delete" on public.shopping_lists
 -- ---------------------------------------------------------------------------
 -- list_items
 -- ---------------------------------------------------------------------------
+-- unaccent() from the extension is only STABLE, so it can't be used directly in
+-- the generated normalized_name column. Wrap it in an IMMUTABLE function that
+-- pins the dictionary, which makes the generation expression valid.
+create or replace function public.immutable_unaccent(text)
+returns text
+language sql
+immutable
+parallel safe
+strict
+set search_path = extensions, public, pg_temp
+as $$ select unaccent('unaccent', $1) $$;
+
 create table public.list_items (
   id uuid primary key default gen_random_uuid(),
   list_id uuid not null references public.shopping_lists (id) on delete cascade,
   name text not null,
   normalized_name text generated always as (
-    lower(unaccent(trim(name)))
+    lower(public.immutable_unaccent(trim(name)))
   ) stored,
   quantity numeric,
   unit text,

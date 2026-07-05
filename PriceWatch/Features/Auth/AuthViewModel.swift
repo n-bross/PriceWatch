@@ -50,4 +50,19 @@ final class AuthViewModel: ObservableObject {
         stage = .enterEmail
         errorMessage = nil
     }
+
+    /// Signs in without email — useful for testing the app before the email
+    /// flow is set up. Requires "Anonymous sign-ins" to be enabled in the
+    /// Supabase dashboard (Authentication → Sign In / Providers).
+    func continueAsGuest() async {
+        isLoading = true
+        errorMessage = nil
+        defer { isLoading = false }
+
+        do {
+            try await supabase.auth.signInAnonymously()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
 }
