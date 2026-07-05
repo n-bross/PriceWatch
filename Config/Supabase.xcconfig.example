@@ -1,0 +1,8 @@
+// Copy this file to Supabase.xcconfig (same folder) and fill in your project's
+// values from the Supabase dashboard: Project Settings -> API.
+// Supabase.xcconfig is gitignored — never commit real keys.
+//
+// Xcode build settings can't contain "//" comments after a value, and slashes
+// in the URL must be escaped for xcconfig's parser.
+SUPABASE_URL = https:/$()/your-project-ref.supabase.co
+SUPABASE_ANON_KEY = your-anon-key-here

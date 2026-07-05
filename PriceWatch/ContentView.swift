@@ -6,16 +6,24 @@
 //
 
 import SwiftUI
+import Supabase
 
 struct ContentView: View {
+    @State private var session: Session?
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            if session != nil {
+                ListsView()
+            } else {
+                AuthView()
+            }
         }
-        .padding()
+        .task {
+            for await state in supabase.auth.authStateChanges {
+                session = state.session
+            }
+        }
     }
 }
 
