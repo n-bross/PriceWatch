@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+
+# Xcode
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+DerivedData/
+*.moved-aside
+*.xcuserstate
+
+# Secrets — never commit real Supabase keys
+*.xcconfig
+!*.xcconfig.example
+
+# Swift Package Manager
+.swiftpm/
+.build/
+
+# Node (web app, Phase 1)
+web/node_modules/
+web/.next/
+web/.env*
+!web/.env.example
+
+# Python (ingestion worker, Phase 2+)
+worker/__pycache__/
+worker/**/__pycache__/
+worker/.venv/
+worker/*.egg-info/
+worker/.env*
+!worker/.env.example
+
+# Supabase local dev
+supabase/.temp/
