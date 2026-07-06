@@ -11,68 +11,104 @@ struct AuthView: View {
     @State private var code = ""
 
     var body: some View {
-        VStack(spacing: 16) {
-            Text("PriceWatch")
-                .font(.largeTitle.bold())
+        VStack(spacing: 0) {
+            Spacer()
 
-            switch viewModel.stage {
-            case .enterEmail:
-                TextField("E-Mail", text: $email)
-                    .textContentType(.emailAddress)
-                    .keyboardType(.emailAddress)
-                    .textInputAutocapitalization(.never)
-                    .autocorrectionDisabled()
-                    .textFieldStyle(.roundedBorder)
-
-                Button("Code senden") {
-                    Task { await viewModel.requestCode(email: email) }
+            VStack(spacing: 12) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.blue.gradient)
+                        .frame(width: 80, height: 80)
+                    Image(systemName: "cart.fill")
+                        .font(.system(size: 36, weight: .semibold))
+                        .foregroundStyle(.white)
                 }
-                .buttonStyle(.borderedProminent)
-                .disabled(email.isEmpty || viewModel.isLoading)
 
-                Button("Ohne Anmeldung testen (Gast)") {
-                    Task { await viewModel.continueAsGuest() }
-                }
-                .buttonStyle(.plain)
-                .font(.footnote)
-                .foregroundStyle(.blue)
-                .disabled(viewModel.isLoading)
+                Text("PriceWatch")
+                    .font(.largeTitle.bold())
 
-            case .enterCode(let sentTo):
-                Text("Code an \(sentTo) gesendet")
-                    .font(.footnote)
+                Text("Einkaufslisten mit Angebots-Radar")
+                    .font(.subheadline)
                     .foregroundStyle(.secondary)
-
-                TextField("6-stelliger Code", text: $code)
-                    .keyboardType(.numberPad)
-                    .textFieldStyle(.roundedBorder)
-
-                Button("Anmelden") {
-                    Task { await viewModel.verifyCode(code, email: sentTo) }
-                }
-                .buttonStyle(.borderedProminent)
-                .disabled(code.isEmpty || viewModel.isLoading)
-
-                Button("Andere E-Mail verwenden") {
-                    viewModel.reset()
-                    code = ""
-                }
-                .buttonStyle(.plain)
-                .font(.footnote)
             }
+            .padding(.bottom, 40)
 
-            if viewModel.isLoading {
-                ProgressView()
-            }
+            VStack(spacing: 16) {
+                switch viewModel.stage {
+                case .enterEmail:
+                    TextField("E-Mail", text: $email)
+                        .textContentType(.emailAddress)
+                        .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+                        .padding(12)
+                        .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 12))
 
-            if let error = viewModel.errorMessage {
-                Text(error)
+                    Button {
+                        Task { await viewModel.requestCode(email: email) }
+                    } label: {
+                        Text("Code senden")
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 6)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .disabled(email.isEmpty || viewModel.isLoading)
+
+                    Button("Ohne Anmeldung testen (Gast)") {
+                        Task { await viewModel.continueAsGuest() }
+                    }
+                    .buttonStyle(.plain)
                     .font(.footnote)
-                    .foregroundStyle(.red)
-                    .multilineTextAlignment(.center)
+                    .foregroundStyle(.blue)
+                    .disabled(viewModel.isLoading)
+
+                case .enterCode(let sentTo):
+                    Text("Code an \(sentTo) gesendet")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+
+                    TextField("6-stelliger Code", text: $code)
+                        .keyboardType(.numberPad)
+                        .textContentType(.oneTimeCode)
+                        .multilineTextAlignment(.center)
+                        .font(.title3.monospacedDigit())
+                        .padding(12)
+                        .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 12))
+
+                    Button {
+                        Task { await viewModel.verifyCode(code, email: sentTo) }
+                    } label: {
+                        Text("Anmelden")
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 6)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .disabled(code.isEmpty || viewModel.isLoading)
+
+                    Button("Andere E-Mail verwenden") {
+                        viewModel.reset()
+                        code = ""
+                    }
+                    .buttonStyle(.plain)
+                    .font(.footnote)
+                }
+
+                if viewModel.isLoading {
+                    ProgressView()
+                }
+
+                if let error = viewModel.errorMessage {
+                    Text(error)
+                        .font(.footnote)
+                        .foregroundStyle(.red)
+                        .multilineTextAlignment(.center)
+                }
             }
+            .padding(.horizontal, 32)
+
+            Spacer()
+            Spacer()
         }
-        .padding()
     }
 }
 
