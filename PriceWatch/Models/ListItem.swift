@@ -11,6 +11,7 @@ struct ListItem: Identifiable, Codable, Hashable {
     var name: String
     var quantity: Double?
     var unit: String?
+    var priceCents: Int?
     var isChecked: Bool
     var position: Int
     var createdBy: UUID
@@ -25,5 +26,6 @@ struct NewListItem: Encodable {
     let createdBy: UUID
     var quantity: Double?
     var unit: String?
+    var priceCents: Int?
     var position: Int
 }

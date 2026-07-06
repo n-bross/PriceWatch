@@ -39,12 +39,12 @@ final class ListsViewModel: ObservableObject {
         }
     }
 
-    func createList(name: String) async {
+    func createList(name: String, color: String, icon: String) async {
         guard let session = try? await supabase.auth.session else { return }
         do {
             try await supabase
                 .from("shopping_lists")
-                .insert(NewShoppingList(ownerId: session.user.id, name: name))
+                .insert(NewShoppingList(ownerId: session.user.id, name: name, color: color, icon: icon))
                 .execute()
             await loadLists()
         } catch {
@@ -52,13 +52,12 @@ final class ListsViewModel: ObservableObject {
         }
     }
 
-    func deleteLists(at offsets: IndexSet) async {
-        let idsToDelete = offsets.map { lists[$0].id }
+    func deleteList(_ list: ShoppingList) async {
         do {
             try await supabase
                 .from("shopping_lists")
                 .delete()
-                .in("id", values: idsToDelete)
+                .eq("id", value: list.id)
                 .execute()
             await loadLists()
         } catch {

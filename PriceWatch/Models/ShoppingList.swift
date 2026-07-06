@@ -9,6 +9,8 @@ struct ShoppingList: Identifiable, Codable, Hashable {
     let id: UUID
     var ownerId: UUID
     var name: String
+    var color: String
+    var icon: String
     var createdAt: Date
     var updatedAt: Date
 }
@@ -16,4 +18,6 @@ struct ShoppingList: Identifiable, Codable, Hashable {
 struct NewShoppingList: Encodable {
     let ownerId: UUID
     let name: String
+    let color: String
+    let icon: String
 }
