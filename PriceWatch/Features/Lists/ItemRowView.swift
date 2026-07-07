@@ -8,7 +8,9 @@ import SwiftUI
 struct ItemRowView: View {
     let item: ListItem
     let accentColor: Color
+    var offer: OfferMatch?
     let onToggle: () -> Void
+    let onEdit: () -> Void
 
     private var detailText: String? {
         var parts: [String] = []
@@ -39,6 +41,18 @@ struct ItemRowView: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
+                if let offer, !item.isChecked {
+                    HStack(spacing: 4) {
+                        Image(systemName: "percent")
+                            .font(.system(size: 9, weight: .bold))
+                        Text("\(euroString(cents: offer.priceCents)) bei \(offer.retailer)")
+                            .font(.caption2.weight(.semibold))
+                    }
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .background(Color.green, in: Capsule())
+                }
             }
 
             Spacer()
@@ -48,6 +62,13 @@ struct ItemRowView: View {
                     .font(.subheadline.monospacedDigit())
                     .foregroundStyle(item.isChecked ? .secondary : .primary)
             }
+
+            Button(action: onEdit) {
+                Image(systemName: "pencil")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+            .buttonStyle(.plain)
         }
         .padding(.vertical, 2)
     }

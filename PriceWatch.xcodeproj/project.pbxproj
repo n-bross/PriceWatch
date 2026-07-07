@@ -24,6 +24,8 @@
 		CC80000000000000000000D8 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB80000000000000000000C8 /* ListDetailView.swift */; };
 		CC90000000000000000000D9 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB90000000000000000000C9 /* ItemRowView.swift */; };
 		CCA0000000000000000000DA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD0000000000000000000CD /* Theme.swift */; };
+		CCB0000000000000000000DB /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE0000000000000000000CE /* Offer.swift */; };
+		CCC0000000000000000000DC /* OffersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF0000000000000000000CF /* OffersView.swift */; };
 		DD30000000000000000000E3 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = DD20000000000000000000E2 /* Supabase */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		BBB0000000000000000000CB /* Supabase.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Supabase.xcconfig; sourceTree = "<group>"; };
 		BBC0000000000000000000CC /* Supabase.xcconfig.example */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Supabase.xcconfig.example; sourceTree = "<group>"; };
 		BBD0000000000000000000CD /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		BBE0000000000000000000CE /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		BBF0000000000000000000CF /* OffersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,7 @@
 			children = (
 				BB20000000000000000000C2 /* ShoppingList.swift */,
 				BB30000000000000000000C3 /* ListItem.swift */,
+				BBE0000000000000000000CE /* Offer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			children = (
 				AA40000000000000000000F0 /* Auth */,
 				AA5000000000000000000A00 /* Lists */,
+				AA7000000000000000000C00 /* Offers */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -204,6 +210,14 @@
 				BB90000000000000000000C9 /* ItemRowView.swift */,
 			);
 			path = Lists;
+			sourceTree = "<group>";
+		};
+		AA7000000000000000000C00 /* Offers */ = {
+			isa = PBXGroup;
+			children = (
+				BBF0000000000000000000CF /* OffersView.swift */,
+			);
+			path = Offers;
 			sourceTree = "<group>";
 		};
 		AA6000000000000000000B00 /* Config */ = {
@@ -363,6 +377,8 @@
 				CC80000000000000000000D8 /* ListDetailView.swift in Sources */,
 				CC90000000000000000000D9 /* ItemRowView.swift in Sources */,
 				CCA0000000000000000000DA /* Theme.swift in Sources */,
+				CCB0000000000000000000DB /* Offer.swift in Sources */,
+				CCC0000000000000000000DC /* OffersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

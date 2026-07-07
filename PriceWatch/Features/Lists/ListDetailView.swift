@@ -10,6 +10,8 @@ import Supabase
 final class ListDetailViewModel: ObservableObject {
     @Published var items: [ListItem] = []
     @Published var errorMessage: String?
+    /// Best current offer per open item, keyed by lowercased item name.
+    @Published var offerMatches: [String: OfferMatch] = [:]
 
     let list: ShoppingList
     private var realtimeChannel: RealtimeChannelV2?
@@ -50,6 +52,34 @@ final class ListDetailViewModel: ObservableObject {
         } catch {
             errorMessage = error.localizedDescription
         }
+        await matchOffers()
+    }
+
+    /// Fetches the best matching current offer for every open item
+    /// (server-side pg_trgm matching). Best-effort: failures never surface.
+    private func matchOffers() async {
+        let names = Array(Set(openItems.map(\.name)))
+        guard !names.isEmpty else {
+            offerMatches = [:]
+            return
+        }
+        do {
+            let matches: [OfferMatch] = try await supabase
+                .rpc("match_offers", params: ["p_names": names])
+                .execute()
+                .value
+            offerMatches = Dictionary(
+                matches.filter { $0.similarity >= 0.25 }
+                    .map { ($0.queryName.lowercased(), $0) },
+                uniquingKeysWith: { first, _ in first }
+            )
+        } catch {
+            offerMatches = [:]
+        }
+    }
+
+    func offer(for item: ListItem) -> OfferMatch? {
+        offerMatches[item.name.lowercased()]
     }
 
     func addItem(name: String) async {
@@ -157,28 +187,37 @@ struct ListDetailView: View {
                 ContentUnavailableView(
                     "Noch keine Artikel",
                     systemImage: viewModel.list.icon,
-                    description: Text("Füge unten deinen ersten Artikel hinzu.")
+                    description: Text("Füge oben deinen ersten Artikel hinzu.")
                 )
                 .listRowSeparator(.hidden)
             }
 
-            Section {
-                ForEach(viewModel.openItems) { item in
-                    row(for: item)
+            if !viewModel.openItems.isEmpty {
+                Section {
+                    ForEach(viewModel.openItems) { item in
+                        row(for: item)
+                    }
+                } header: {
+                    banner("Zu kaufen (\(viewModel.openItems.count))", color: accentColor)
                 }
             }
 
             if !viewModel.checkedItems.isEmpty {
-                Section("Erledigt (\(viewModel.checkedItems.count))") {
+                Section {
                     ForEach(viewModel.checkedItems) { item in
                         row(for: item)
                     }
+                } header: {
+                    banner("Erledigt (\(viewModel.checkedItems.count))", color: Color(.systemGray3))
                 }
             }
         }
         .listStyle(.insetGrouped)
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaInset(edge: .top) {
             addBar
+        }
+        .safeAreaInset(edge: .bottom) {
+            totalBar
         }
         .navigationTitle(viewModel.list.name)
         .navigationBarTitleDisplayMode(.large)
@@ -205,11 +244,15 @@ struct ListDetailView: View {
     }
 
     private func row(for item: ListItem) -> some View {
-        ItemRowView(item: item, accentColor: accentColor) {
-            Task { await viewModel.toggleChecked(item) }
-        }
+        ItemRowView(
+            item: item,
+            accentColor: accentColor,
+            offer: viewModel.offer(for: item),
+            onToggle: { Task { await viewModel.toggleChecked(item) } },
+            onEdit: { editingItem = item }
+        )
         .contentShape(Rectangle())
-        .onTapGesture { editingItem = item }
+        .onTapGesture { Task { await viewModel.toggleChecked(item) } }
         .swipeActions(edge: .trailing) {
             Button(role: .destructive) {
                 Task { await viewModel.deleteItem(item) }
@@ -219,42 +262,55 @@ struct ListDetailView: View {
         }
     }
 
+    /// AnyList-style colored section banner.
+    private func banner(_ text: String, color: Color) -> some View {
+        Text(text)
+            .font(.footnote.weight(.semibold))
+            .textCase(nil)
+            .foregroundStyle(.white)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 5)
+            .background(color, in: RoundedRectangle(cornerRadius: 6))
+            .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 6, trailing: 0))
+    }
+
     private var addBar: some View {
-        VStack(spacing: 8) {
-            if viewModel.openTotalCents > 0 {
-                HStack {
-                    Text("Geschätzte Summe")
-                        .foregroundStyle(.secondary)
-                    Spacer()
-                    Text(euroString(cents: viewModel.openTotalCents))
-                        .fontWeight(.semibold)
-                        .monospacedDigit()
-                    if viewModel.openItemsWithPriceCount < viewModel.openItems.count {
-                        Text("(\(viewModel.openItemsWithPriceCount)/\(viewModel.openItems.count) mit Preis)")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                }
-                .font(.subheadline)
-            }
+        HStack(spacing: 8) {
+            TextField("＋ Artikel hinzufügen …", text: $newItemName)
+                .focused($addFieldFocused)
+                .textFieldStyle(.plain)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 9)
+                .background(Color(.systemBackground), in: Capsule())
+                .overlay(Capsule().strokeBorder(Color(.systemGray4)))
+                .onSubmit(addCurrentItem)
 
-            HStack(spacing: 8) {
-                TextField("Artikel hinzufügen …", text: $newItemName)
-                    .focused($addFieldFocused)
-                    .textFieldStyle(.plain)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 10)
-                    .background(Color(.systemGray6), in: Capsule())
-                    .onSubmit(addCurrentItem)
-
+            if !newItemName.trimmingCharacters(in: .whitespaces).isEmpty {
                 Button(action: addCurrentItem) {
                     Image(systemName: "plus.circle.fill")
-                        .font(.system(size: 32))
+                        .font(.system(size: 30))
                         .foregroundStyle(accentColor)
                 }
                 .buttonStyle(.plain)
-                .disabled(newItemName.trimmingCharacters(in: .whitespaces).isEmpty)
             }
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+        .background(.bar)
+    }
+
+    /// AnyList-style bottom bar: remaining estimated total, always visible.
+    private var totalBar: some View {
+        HStack {
+            if viewModel.openItemsWithPriceCount < viewModel.openItems.count && viewModel.openItemsWithPriceCount > 0 {
+                Text("\(viewModel.openItemsWithPriceCount) von \(viewModel.openItems.count) mit Preis")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            Spacer()
+            Text("Verbleibend: \(euroString(cents: viewModel.openTotalCents))")
+                .font(.subheadline.weight(.semibold))
+                .monospacedDigit()
         }
         .padding(.horizontal)
         .padding(.vertical, 10)

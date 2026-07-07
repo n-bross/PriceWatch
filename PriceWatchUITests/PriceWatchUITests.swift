@@ -10,32 +10,69 @@ import XCTest
 final class PriceWatchUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    private func snap(_ name: String) {
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    /// End-to-end walkthrough against the live Supabase backend:
+    /// guest login -> tab bar -> offers load -> add item -> offer badge.
+    func testGuestFlowTabsAndOfferMatching() throws {
         let app = XCUIApplication()
         app.launch()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+        // Guest login (skipped if a session from a previous run still exists).
+        let guestButton = app.buttons["Ohne Anmeldung testen (Gast)"]
+        if guestButton.waitForExistence(timeout: 5) {
+            guestButton.tap()
         }
+
+        // Tab bar with all three tabs must appear.
+        let listsTab = app.tabBars.buttons["Listen"]
+        XCTAssertTrue(listsTab.waitForExistence(timeout: 15), "Tab-Bar erschien nicht nach Login")
+        XCTAssertTrue(app.tabBars.buttons["Angebote"].exists)
+        XCTAssertTrue(app.tabBars.buttons["Einstellungen"].exists)
+
+        // Offers tab shows seeded retailers.
+        app.tabBars.buttons["Angebote"].tap()
+        XCTAssertTrue(
+            app.staticTexts["Lidl"].waitForExistence(timeout: 10),
+            "Angebote wurden nicht geladen"
+        )
+        snap("angebote-tab")
+
+        // Open the first shopping list and add an item that has a matching offer.
+        // On a fresh guest account (clean simulator clone) no list exists yet —
+        // create one through the UI first.
+        listsTab.tap()
+        var firstList = app.collectionViews.cells.firstMatch
+        if !firstList.waitForExistence(timeout: 5) {
+            app.buttons["Neue Liste"].tap()
+            let nameField = app.textFields["Name der Liste"]
+            XCTAssertTrue(nameField.waitForExistence(timeout: 5), "Neue-Liste-Sheet fehlt")
+            nameField.tap()
+            nameField.typeText("Wocheneinkauf")
+            app.buttons["Erstellen"].tap()
+            firstList = app.collectionViews.cells.firstMatch
+            XCTAssertTrue(firstList.waitForExistence(timeout: 10), "Liste wurde nicht erstellt")
+        }
+        firstList.tap()
+
+        let addField = app.textFields.firstMatch
+        XCTAssertTrue(addField.waitForExistence(timeout: 10), "Add-Feld fehlt")
+        addField.tap()
+        addField.typeText("Pommes\n")
+
+        // The green offer badge must appear (server-side pg_trgm match).
+        let badge = app.staticTexts.matching(
+            NSPredicate(format: "label CONTAINS %@", "bei Lidl")
+        ).firstMatch
+        XCTAssertTrue(badge.waitForExistence(timeout: 15), "Angebots-Badge fehlt — Item-Insert oder match_offers fehlgeschlagen")
+        snap("listen-detail-mit-badge")
     }
 }
