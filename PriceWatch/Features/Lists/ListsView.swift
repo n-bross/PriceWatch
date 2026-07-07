@@ -47,6 +47,7 @@ struct ListsView: View {
                     } label: {
                         Image(systemName: "plus")
                     }
+                    .accessibilityLabel("Neue Liste")
                 }
             }
             .task { await viewModel.start() }
