@@ -1,0 +1,320 @@
+[
+  {
+    "id": "aldi_sued",
+    "name": "ALDI Süd",
+    "urls": [
+      "https://www.aldi-sued.de/angebote",
+      "https://www.aldi-sued.de/prospekte",
+      "https://www.aldi-sued.de/"
+    ]
+  },
+  {
+    "id": "aldi_nord",
+    "name": "ALDI Nord",
+    "urls": [
+      "https://www.aldi-nord.de/angebote.html",
+      "https://www.aldi-nord.de/prospekte.html",
+      "https://www.aldi-nord.de/"
+    ]
+  },
+  {
+    "id": "alnatura",
+    "name": "Alnatura",
+    "urls": [
+      "https://www.alnatura.de/maerkte/angebote-vorschau",
+      "https://www.alnatura.de/de-de/angebote/",
+      "https://www.alnatura.de/"
+    ]
+  },
+  {
+    "id": "bio_company",
+    "name": "Bio Company",
+    "urls": [
+      "https://www.biocompany.de/neuigkeiten/angebote.html",
+      "https://www.biocompany.de/angebote/",
+      "https://www.biocompany.de/aktuelles/angebote/",
+      "https://www.biocompany.de/"
+    ]
+  },
+  {
+    "id": "cap",
+    "name": "CAP-Markt",
+    "urls": [
+      "https://cap-markt.de/angebote/",
+      "https://cap-markt.de/maerkte/",
+      "https://cap-markt.de/"
+    ]
+  },
+  {
+    "id": "combi",
+    "name": "Combi",
+    "urls": [
+      "https://www.combi.de/prospekt-angebote_220012750.html",
+      "https://www.combi.de/aktuelles/unsere-angebote",
+      "https://www.combi.de/"
+    ]
+  },
+  {
+    "id": "denns",
+    "name": "Denns BioMarkt",
+    "urls": [
+      "https://www.biomarkt.de/angebote",
+      "https://www.biomarkt.de/maerkte",
+      "https://www.biomarkt.de/"
+    ]
+  },
+  {
+    "id": "diska",
+    "name": "diska",
+    "urls": [
+      "https://diska.de/prospekt/",
+      "https://www.diska.de/angebote/",
+      "https://www.diska.de/maerkte/",
+      "https://www.diska.de/"
+    ]
+  },
+  {
+    "id": "edeka",
+    "name": "EDEKA",
+    "urls": [
+      "https://www.edeka.de/angebote/",
+      "https://www.edeka.de/regionen/suedbayern/angebote/",
+      "https://www.edeka-wochenangebote.de/"
+    ]
+  },
+  {
+    "id": "feneberg",
+    "name": "Feneberg",
+    "urls": [
+      "https://www.feneberg.de/angebote/",
+      "https://www.feneberg.de/maerkte/",
+      "https://www.feneberg.de/"
+    ]
+  },
+  {
+    "id": "famila_nordost",
+    "name": "famila Nordost",
+    "urls": [
+      "https://www.famila-nordost.de/angebote/",
+      "https://www.famila-nordost.de/maerkte/",
+      "https://www.famila-nordost.de/"
+    ]
+  },
+  {
+    "id": "famila_nordwest",
+    "name": "famila Nordwest",
+    "urls": [
+      "https://www.famila-nordwest.de/aktuelles/wochenangebote",
+      "https://www.famila-nordwest.de/angebote/",
+      "https://www.famila-nordwest.de/aktuelles/",
+      "https://www.famila-nordwest.de/"
+    ]
+  },
+  {
+    "id": "globus",
+    "name": "GLOBUS",
+    "urls": [
+      "https://produkte.globus.de/angebote-der-woche/",
+      "https://www.globus.de/gruenstadt/aktuelles-prospekt.php",
+      "https://produkte.globus.de/"
+    ]
+  },
+  {
+    "id": "hit",
+    "name": "HIT",
+    "urls": [
+      "https://www.hit.de/angebote-coupons",
+      "https://www.hit.de/angebote.html",
+      "https://www.hit.de/"
+    ]
+  },
+  {
+    "id": "klaus_kock",
+    "name": "K+K Klaas & Kock",
+    "urls": [
+      "https://www.klaas-und-kock.de/angebote/",
+      "https://www.klaas-und-kock.de/maerkte/",
+      "https://www.klaas-und-kock.de/"
+    ]
+  },
+  {
+    "id": "kaufland",
+    "name": "Kaufland",
+    "urls": [
+      "https://filiale.kaufland.de/angebote.html",
+      "https://filiale.kaufland.de/prospekte.html",
+      "https://filiale.kaufland.de/"
+    ]
+  },
+  {
+    "id": "lidl",
+    "name": "Lidl",
+    "urls": [
+      "https://www.lidl.de/c/online-prospekte/s10005610/",
+      "https://www.lidl.de/c/lebensmittel/s10000937",
+      "https://www.lidl.de/"
+    ]
+  },
+  {
+    "id": "marktkauf",
+    "name": "Marktkauf",
+    "urls": [
+      "https://www.marktkauf.de/angebote/",
+      "https://www.marktkauf.de/maerkte/",
+      "https://www.marktkauf.de/"
+    ]
+  },
+  {
+    "id": "mix_markt",
+    "name": "Mix Markt",
+    "urls": [
+      "https://www.mixmarkt.eu/de/germany/angebote/",
+      "https://www.mixmarkt.eu/de/germany/maerkte/",
+      "https://www.mixmarkt.eu/"
+    ]
+  },
+  {
+    "id": "netto",
+    "name": "Netto Marken-Discount",
+    "urls": [
+      "https://www.netto-online.de/ueber-netto/Online-Prospekte.chtm/1013",
+      "https://www.netto-online.de/angebote/",
+      "https://www.netto-online.de/"
+    ]
+  },
+  {
+    "id": "norma",
+    "name": "NORMA",
+    "urls": [
+      "https://www.norma-online.de/de/angebote/",
+      "https://www.norma-online.de/de/angebote/onlineprospekt/",
+      "https://www.norma-online.de/"
+    ]
+  },
+  {
+    "id": "penny",
+    "name": "PENNY",
+    "urls": [
+      "https://www.penny.de/angebote",
+      "https://www.penny.de/angebote/prospekt",
+      "https://www.penny.de/"
+    ]
+  },
+  {
+    "id": "rewe",
+    "name": "REWE",
+    "urls": [
+      "https://www.rewe.de/angebote/grafing/461766/rewe-leonhardstr-5-a/",
+      "https://www.rewe.de/shop/",
+      "https://www.rewe.de/"
+    ]
+  },
+  {
+    "id": "netto_dog",
+    "name": "Netto mit Hund",
+    "urls": [
+      "https://netto.de/prospekte/",
+      "https://netto.de/angebote/",
+      "https://netto.de/"
+    ]
+  },
+  {
+    "id": "tegut",
+    "name": "tegut",
+    "urls": [
+      "https://mittelhessen.tegut.com/",
+      "https://baden-wuerttemberg.tegut.com/",
+      "https://www.tegut.com/angebote.html"
+    ]
+  },
+  {
+    "id": "v_markt",
+    "name": "V-Markt",
+    "urls": [
+      "https://www.v-markt.de/angebote/",
+      "https://www.v-markt.de/maerkte/",
+      "https://www.v-markt.de/"
+    ]
+  },
+  {
+    "id": "wasgau",
+    "name": "WASGAU",
+    "urls": [
+      "https://wasgau-dlog.1kcloud.com/ep1rP1V0/",
+      "https://www.wasgau.de/angebote/",
+      "https://www.wasgau.de/maerkte/",
+      "https://www.wasgau.de/"
+    ]
+  },
+  {
+    "id": "nahkauf",
+    "name": "nahkauf",
+    "urls": [
+      "https://www.nahkauf.de/angebote",
+      "https://www.nahkauf.de/maerkte",
+      "https://www.nahkauf.de/"
+    ]
+  },
+  {
+    "id": "markant",
+    "name": "Markant",
+    "urls": [
+      "https://www.markant-online.de/angebote/",
+      "https://www.markant-online.de/maerkte/",
+      "https://www.markant-online.de/"
+    ]
+  },
+  {
+    "id": "konsum_dresden",
+    "name": "Konsum Dresden",
+    "urls": [
+      "https://www.konsum.de/angebote/",
+      "https://www.konsum.de/wochenangebote/",
+      "https://www.konsum.de/"
+    ]
+  },
+  {
+    "id": "konsum_leipzig",
+    "name": "Konsum Leipzig",
+    "urls": [
+      "https://www.konsum-leipzig.de/angebote/",
+      "https://www.konsum-leipzig.de/maerkte/",
+      "https://www.konsum-leipzig.de/"
+    ]
+  },
+  {
+    "id": "lpg",
+    "name": "LPG BioMarkt",
+    "urls": [
+      "https://www.lpg-biomarkt.de/angebote/",
+      "https://www.lpg-biomarkt.de/maerkte/",
+      "https://www.lpg-biomarkt.de/"
+    ]
+  },
+  {
+    "id": "dm",
+    "name": "dm",
+    "urls": [
+      "https://www.dm.de/ernaehrung",
+      "https://www.dm.de/angebote",
+      "https://www.dm.de/"
+    ]
+  },
+  {
+    "id": "rossmann",
+    "name": "ROSSMANN",
+    "urls": [
+      "https://www.rossmann.de/de/angebote",
+      "https://www.rossmann.de/de/lebensmittel/c/olcat1_5",
+      "https://www.rossmann.de/"
+    ]
+  },
+  {
+    "id": "mytime",
+    "name": "myTime",
+    "urls": [
+      "https://www.mytime.de/lebensmittel_10000000.html",
+      "https://www.mytime.de/"
+    ]
+  }
+]

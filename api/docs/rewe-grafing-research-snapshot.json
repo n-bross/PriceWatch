@@ -1,0 +1,62 @@
+{
+  "notice": "Manual research snapshot from official market page read with web research tool. Not an automatic REWE importer. Dates verified in displayed source; weekly start inferred from page weekly range. Store closed03.10.2026. Bonus is future credit and is not deducted from price.",
+  "source_url": "https://www.rewe.de/marktseite/grafing/461766/rewe-markt-leonhardstr-5-a/",
+  "observed_at": "2026-10-02T04:59:30.407681+00:00",
+  "retailer": "REWE",
+  "store_id": "461766",
+  "store_name": "REWE Martin Gruber",
+  "address": "Leonhardstr.5a,85567Grafing",
+  "postal_code": "85567",
+  "valid_from": "2026-09-28",
+  "valid_to": "2026-10-03",
+  "items": [
+    {
+      "name": "Knorr Fix Lasagne",
+      "price_eur": "0.49",
+      "package": "52 g",
+      "unit_price_eur": "9.42",
+      "unit_price_unit": "kg",
+      "bonus_credit_eur": "0.10"
+    },
+    {
+      "name": "Knorr Fix Air Fryer Hähnchen Döner Style",
+      "price_eur": "0.49",
+      "package": "30 g",
+      "unit_price_eur": "16.33",
+      "unit_price_unit": "kg",
+      "bonus_credit_eur": "0.10"
+    },
+    {
+      "name": "Mövenpick Eis",
+      "price_eur": "1.79",
+      "package": "850 ml",
+      "unit_price_eur": "2.11",
+      "unit_price_unit": "l",
+      "bonus_credit_eur": "0.20"
+    },
+    {
+      "name": "Arla Kaergården",
+      "price_eur": "1.29",
+      "package": "200 g",
+      "unit_price_eur": "6.45",
+      "unit_price_unit": "kg",
+      "bonus_credit_eur": null
+    },
+    {
+      "name": "Wagner Die Backfrische Mozzarella",
+      "price_eur": "1.99",
+      "package": "350 g",
+      "unit_price_eur": "5.69",
+      "unit_price_unit": "kg",
+      "bonus_credit_eur": "0.20"
+    },
+    {
+      "name": "Wagner Big City Salami",
+      "price_eur": "1.99",
+      "package": "415 g",
+      "unit_price_eur": "4.80",
+      "unit_price_unit": "kg",
+      "bonus_credit_eur": "0.20"
+    }
+  ]
+}

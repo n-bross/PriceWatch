@@ -1,0 +1,11 @@
+[Unit]
+Description=Recurring GLOBUS catalogue refresh batches
+
+[Timer]
+OnCalendar=*-*-* *:02/15:00
+RandomizedDelaySec=30
+Persistent=true
+Unit=pricewatch-bulk-globus-e70d379d.service
+
+[Install]
+WantedBy=timers.target

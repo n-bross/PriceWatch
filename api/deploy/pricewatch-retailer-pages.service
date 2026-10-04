@@ -1,0 +1,14 @@
+[Unit]
+Description=Refresh public GLOBUS, Combi, HIT and NORMA product prices
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=@API_DIR@
+EnvironmentFile=@API_DIR@/.env
+ExecStart=@API_DIR@/.venv/bin/python scripts/crawl_catalogs.py
+ExecStart=@API_DIR@/.venv/bin/python scripts/sync_more_sources.py
+TimeoutStartSec=1800
+Nice=10
+UMask=0077

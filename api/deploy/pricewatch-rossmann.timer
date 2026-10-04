@@ -1,0 +1,11 @@
+[Unit]
+Description=Resume ROSSMANN price capture every 15 minutes
+
+[Timer]
+OnCalendar=*-*-* *:10/15:00
+RandomizedDelaySec=30
+Persistent=true
+Unit=pricewatch-rossmann-e70d379d.service
+
+[Install]
+WantedBy=timers.target

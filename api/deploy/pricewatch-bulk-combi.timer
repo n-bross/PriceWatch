@@ -1,0 +1,11 @@
+[Unit]
+Description=Recurring Combi catalogue refresh batches
+
+[Timer]
+OnCalendar=*-*-* *:07/15:00
+RandomizedDelaySec=30
+Persistent=true
+Unit=pricewatch-bulk-combi-e70d379d.service
+
+[Install]
+WantedBy=timers.target
