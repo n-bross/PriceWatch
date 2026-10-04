@@ -1,0 +1,35 @@
+{
+  "offerTiles": [
+    {
+      "title": "LEERDAMMER Feine Käsescheiben*",
+      "quantity": "je 100 g",
+      "price": "1.49",
+      "basePrice": "(1 kg = 14.90)",
+      "benefitPrice": "1.29²",
+      "benefitGroundPrice": "(1 kg = 12.90)",
+      "uuid": "6e7f907c-a958-465d-a8b3-dc02c665f96f",
+      "primaryType": "promoPlus"
+    },
+    {
+      "title": "PENNY ZUKUNFTSBAUER Butterkäse*",
+      "quantity": "je 150 g",
+      "price": "1.59²",
+      "basePrice": "1.79 (1 kg = 11.93)",
+      "benefitGroundPrice": "(1 kg = 10.60)",
+      "uuid": "59fe3e3f-b2f0-471e-8d64-5f68aec3f1d8",
+      "primaryType": "promo"
+    },
+    {
+      "title": "Deutscher Eisbergsalat*",
+      "quantity": "je Stück",
+      "priceFrom": false,
+      "price": "0.77",
+      "actionPriceFrom": false,
+      "multiBuy": false,
+      "basePrice": null,
+      "onlyOnline": false,
+      "uuid": "ae019ea5-666e-412e-87d4-517b11ca75c2",
+      "primaryType": "offer"
+    }
+  ]
+}

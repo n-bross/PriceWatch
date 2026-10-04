@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily public retailer product price refresh
+
+[Timer]
+OnCalendar=*-*-* 06:40:00 Europe/Berlin
+RandomizedDelaySec=300
+Persistent=true
+Unit=pricewatch-retailer-pages-e70d379d.service
+
+[Install]
+WantedBy=timers.target

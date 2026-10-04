@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supermarktpreise vergleichen</title>
+  <style>
+    :root {
+      --petrol-dark: #0b2228;
+      --petrol: #133941;
+      --petrol-light: #1e4f5a;
+      --petrol-soft: #2d6b79;
+      --mint: #10b981;
+      --mint-light: #e6fcf5;
+      --mint-glow: #a7f3d0;
+      --mint-dark: #047857;
+      --bg-page: #f3f6f6;
+      --surface-card: #ffffff;
+      --text-main: #1f2937;
+      --text-muted: #5f6b7c;
+      --border-subtle: #e2e8f0;
+      --border-focus: #10b981;
+      --badge-warn-bg: #fffbeb;
+      --badge-warn-text: #b45309;
+      --badge-info-bg: #eff6ff;
+      --badge-info-text: #1d4ed8;
+      --badge-danger-bg: #fef2f2;
+      --badge-danger-text: #b91c1c;
+      --badge-neutral-bg: #f1f5f9;
+      --badge-neutral-text: #475569;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.site-header {
+      background: linear-gradient(135deg, var(--petrol-dark) 0%, var(--petrol) 65%, var(--petrol-light) 100%);
+      color: #ffffff;
+      padding: 2.5rem 1.5rem 2rem 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--mint-glow);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      margin-bottom: 0.75rem;
+    }
+
+    .site-header h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .site-header p.subtitle {
+      color: #cbd5e1;
+      font-size: 1rem;
+      max-width: 780px;
+    }
+
+    .catalog-status-bar {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.825rem;
+      color: #94a3b8;
+    }
+
+    .catalog-status-bar strong {
+      color: #f8fafc;
+    }
+
+    main.site-main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .search-panel {
+      background: var(--surface-card);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-subtle);
+      margin-top: -3.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .search-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr auto;
+      gap: 1rem;
+      align-items: end;
+    }
+
+    @media (max-width: 900px) {
+      .search-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 600px) {
+      .search-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      color: var(--text-main);
+      background-color: #fff;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      font-family: inherit;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+    }
+
+    .btn-submit {
+      background: var(--mint);
+      color: #ffffff;
+      border: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.72rem 1.6rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.05s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      height: 42px;
+    }
+
+    .btn-submit:hover {
+      background: var(--mint-dark);
+    }
+
+    .btn-submit:active {
+      transform: translateY(1px);
+    }
+
+    .scope-note {
+      margin-top: 0.8rem;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .toggles-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-subtle);
+      align-items: center;
+      font-size: 0.875rem;
+    }
+
+    .checkbox-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--text-main);
+      user-select: none;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      width: 1.05rem;
+      height: 1.05rem;
+      accent-color: var(--mint);
+      cursor: pointer;
+    }
+
+    .coverage-accordion {
+      margin-top: 2rem;
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .coverage-summary {
+      padding: 1.2rem 1.5rem;
+      background: #fafcfc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s ease;
+    }
+
+    .coverage-summary:hover {
+      background: #f1f5f5;
+    }
+
+    .coverage-summary h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--petrol);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .coverage-summary-meta {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .coverage-content {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      overflow-x: auto;
+    }
+
+    .coverage-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      min-width: 860px;
+    }
+
+    .coverage-table th {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      background: #f8fafc;
+      color: var(--text-muted);
+      font-weight: 700;
+      border-bottom: 2px solid var(--border-subtle);
+    }
+
+    .coverage-table td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: top;
+    }
+
+    .coverage-table tr:hover td {
+      background-color: #fafbfc;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .badge-success {
+      background: var(--mint-light);
+      color: var(--mint-dark);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-warn {
+      background: var(--badge-warn-bg);
+      color: var(--badge-warn-text);
+      border: 1px solid #fde68a;
+    }
+
+    .badge-info {
+      background: var(--badge-info-bg);
+      color: var(--badge-info-text);
+      border: 1px solid #bfdbfe;
+    }
+
+    .badge-danger {
+      background: var(--badge-danger-bg);
+      color: var(--badge-danger-text);
+      border: 1px solid #fecaca;
+    }
+
+    .badge-neutral {
+      background: var(--badge-neutral-bg);
+      color: var(--badge-neutral-text);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .attempts-list, .pdf-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.775rem;
+      color: var(--text-muted);
+      max-width: 380px;
+    }
+
+    .attempts-list a, .pdf-list a {
+      color: var(--petrol);
+      text-decoration: underline;
+      word-break: break-all;
+    }
+
+    .results-section {
+      margin-top: 2rem;
+    }
+
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .results-count {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--petrol);
+    }
+
+    .results-filters-applied {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .product-card {
+      background: var(--surface-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-sm);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .product-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .product-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.15rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .product-titles {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .product-brand {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--mint-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .product-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--petrol-dark);
+      line-height: 1.3;
+    }
+
+    .product-package {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: #f1f5f9;
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .product-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.4rem;
+    }
+
+    @media (max-width: 600px) {
+      .product-meta {
+        align-items: flex-start;
+      }
+    }
+
+    .ean-box {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.825rem;
+      background: #f8fafc;
+      border: 1px solid var(--border-subtle);
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-copy {
+      background: none;
+      border: none;
+      color: var(--petrol);
+      cursor: pointer;
+      padding: 0.1rem 0.3rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background 0.1s ease;
+    }
+
+    .btn-copy:hover {
+      background: #e2e8f0;
+    }
+
+    .prices-container {
+      margin-top: 0.75rem;
+    }
+
+    .price-table-wrapper {
+      overflow-x: auto;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      text-align: left;
+    }
+
+    .price-table th {
+      padding: 0.6rem 0.75rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      border-bottom: 2px solid var(--border-subtle);
+      font-size: 0.775rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .price-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: middle;
+    }
+
+    .price-cell {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--petrol-dark);
+      white-space: nowrap;
+    }
+
+    .price-retailer {
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .retailer-channel {
+      font-size: 0.75rem;
+      font-weight: normal;
+      color: var(--text-muted);
+    }
+
+    .source-link {
+      color: var(--petrol);
+      text-decoration: underline;
+      font-size: 0.8rem;
+    }
+
+    .catalog-only-notice {
+      background: #fafcfc;
+      border: 1px dashed #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .pagination-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .btn-page {
+      background: var(--surface-card);
+      border: 1.5px solid var(--border-subtle);
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      color: var(--text-main);
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-page:hover:not(:disabled) {
+      border-color: var(--mint);
+      color: var(--mint-dark);
+    }
+
+    .btn-page:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .page-info {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .loading-state, .empty-state, .error-state {
+      background: var(--surface-card);
+      border-radius: var(--radius-lg);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      border: 1px solid var(--border-subtle);
+      margin-top: 1.5rem;
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3.5px solid rgba(16, 185, 129, 0.2);
+      border-top-color: var(--mint);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1rem auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .error-state {
+      border-color: #fecaca;
+      background-color: #fefcfc;
+    }
+
+    .error-title {
+      color: var(--badge-danger-text);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .site-footer {
+      background: var(--petrol-dark);
+      color: #94a3b8;
+      padding: 2.5rem 1.5rem;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .footer-content a {
+      color: var(--mint-glow);
+      text-decoration: underline;
+    }
+
+    .ethics-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <div class="header-badge">
+        <span>●</span> Preisbeobachtung &amp; Angebote
+      </div>
+      <h1>Supermarktpreise vergleichen</h1>
+      <p class="subtitle">
+        Suche nach Produkt oder EAN. Vergleiche verfügbare Angebote und Preisbeobachtungen.
+      </p>
+      <div class="catalog-status-bar" id="catalogStatusContainer">
+        <span>Datenbasis: <strong id="statProducts">-</strong> Produkte</span>
+        <span>•</span>
+        <span><strong id="statObservations">-</strong> erfasste Preise</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section class="search-panel">
+      <form id="searchForm" class="search-form">
+        <div class="search-grid">
+          <div class="form-group">
+            <label for="queryInput">Suchbegriff oder EAN</label>
+            <input
+              type="text"
+              id="queryInput"
+              class="form-control"
+              placeholder="z. B. Vollmilch, Nutella oder 4008400401025"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="plzInput">Postleitzahl (PLZ)</label>
+            <input
+              type="text"
+              id="plzInput"
+              class="form-control"
+              value="85567"
+              pattern="[0-9]{5}"
+              maxlength="5"
+              placeholder="85567"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="retailerSelect">Händler filtern</label>
+            <select id="retailerSelect" class="form-control">
+              <option value="">Alle Händler</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-submit" id="searchBtn">
+            <span>Preise vergleichen</span>
+          </button>
+        </div>
+
+        <div class="toggles-bar">
+          <label class="checkbox-label" title="Angebote anzeigen, die eine App oder Kundenkarte erfordern">
+            <input type="checkbox" id="membershipToggle" />
+            App- &amp; Kundenkarten-Preise einbeziehen
+          </label>
+
+          <label class="checkbox-label" title="Auch ältere Beobachtungen anzeigen">
+            <input type="checkbox" id="historyToggle" />
+            Frühere Preise anzeigen
+          </label>
+        </div>
+        <p class="scope-note">Angebote innerhalb ihrer Gültigkeit und beobachtete Preise der letzten 7 Tage. Ein beobachteter Preis kann sich inzwischen geändert haben; Datum und Quelle stehen am Preis.</p>
+      </form>
+    </section>
+
+    <details class="coverage-accordion" id="importStatusPanel">
+      <summary class="coverage-summary"><h2>Preisimporte und Datenstand</h2></summary>
+      <div class="coverage-content">
+        <p id="importStatusNote" class="scope-note">Lade den gespeicherten Importstand …</p>
+        <button type="button" id="refreshImportStatus">Stand aktualisieren</button>
+        <div style="overflow-x:auto; margin-top:1rem">
+          <table class="coverage-table">
+            <thead><tr><th>Quelle</th><th>Letzter Importstand</th><th>Fortschritt</th>
+              <th>Beobachtungen inkl. Historie</th><th>Zuletzt beobachteter Preis</th></tr></thead>
+            <tbody id="importStatusRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <!-- Collapsible Händlerabdeckung -->
+    <section class="coverage-accordion">
+      <div class="coverage-summary" id="coverageToggle" role="button" tabindex="0" aria-expanded="false">
+        <h2>
+          <span>Händlerabdeckung und Status</span>
+          <span class="badge badge-neutral" id="coverageRetailerCount">34 Händler geprüft</span>
+        </h2>
+        <div class="coverage-summary-meta">
+          <span id="coverageCheckedAt">Prüfzeitpunkt: Lädt...</span>
+          <span id="coverageChevron">▼</span>
+        </div>
+      </div>
+      <div class="coverage-content" id="coverageBody" style="display: none;">
+        <table class="coverage-table">
+          <thead>
+            <tr>
+              <th>Händler</th>
+              <th>Vollsortiment erfasst?</th>
+              <th>Preis-Status</th>
+              <th>Preise / EANs</th>
+              <th>Prüfdetails / Web-Abfragen</th>
+              <th>Prospekt-PDFs</th>
+            </tr>
+          </thead>
+          <tbody id="coverageTableBody">
+            <tr><td colspan="6" style="text-align: center; padding: 1.5rem;">Lade Händlerstatus...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" id="resultsSection">
+      <div class="results-header" id="resultsHeader" style="display: none;">
+        <div class="results-count" id="resultsCountText">Suchergebnisse</div>
+        <div class="results-filters-applied" id="resultsFiltersList"></div>
+      </div>
+
+      <div id="loadingIndicator" class="loading-state" style="display: none;">
+        <div class="spinner"></div>
+        <p>Preise und Angebote werden abgeglichen...</p>
+      </div>
+
+      <div id="errorMessage" class="error-state" style="display: none;">
+        <div class="error-title">Fehler beim Datenabruf</div>
+        <p id="errorDetails" style="color: var(--text-muted); font-size: 0.9rem;"></p>
+      </div>
+
+      <div id="emptyMessage" class="empty-state" style="display: none;">
+        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--petrol);">Keine Artikel gefunden</h3>
+        <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto; font-size: 0.9rem;">
+          Zu den gewählten Kriterien konnten keine Produkte gefunden werden. Bitte prüfen Sie den Suchbegriff oder die PLZ.
+        </p>
+      </div>
+
+      <div id="productsContainer"></div>
+
+      <div class="pagination-bar" id="paginationBar" style="display: none;">
+        <button type="button" class="btn-page" id="prevPageBtn">&larr; Vorherige</button>
+        <span class="page-info" id="pageInfoText">Seite 1 von 1</span>
+        <button type="button" class="btn-page" id="nextPageBtn">Nächste &rarr;</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="ethics-box">
+        <strong>Hinweis zu Preisen und Daten:</strong>
+        Angebote aus Werbeprospekten gelten in teilnehmenden Märkten und können vor Ort abweichen. Archivierte oder von der Community erfasste Preisbeobachtungen werden nicht einzeln im Geschäft überprüft. Artikel ohne globale EAN/GTIN werden nur innerhalb des jeweiligen Händlers verglichen.
+      </div>
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          Produkt- und Stammdaten teilweise lizenziert über
+          <a href="https://world.openfoodfacts.org/" target="_blank" rel="noopener noreferrer">Open Food Facts</a>
+          unter der <a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener noreferrer">Open Database License (ODbL)</a>.
+        </div>
+        <div>
+          PLZ-Filterung standardmäßig für <strong>85567 Grafing / Ebersberg</strong>.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const state = {
+        query: "",
+        plz: "85567",
+        retailer: "",
+        includeMembership: false,
+        includeHistory: false,
+        limit: 20,
+        offset: 0,
+        total: 0,
+        retailersList: []
+      };
+
+      const els = {
+        searchForm: document.getElementById("searchForm"),
+        queryInput: document.getElementById("queryInput"),
+        plzInput: document.getElementById("plzInput"),
+        retailerSelect: document.getElementById("retailerSelect"),
+        membershipToggle: document.getElementById("membershipToggle"),
+        historyToggle: document.getElementById("historyToggle"),
+        coverageToggle: document.getElementById("coverageToggle"),
+        coverageBody: document.getElementById("coverageBody"),
+        coverageChevron: document.getElementById("coverageChevron"),
+        coverageTableBody: document.getElementById("coverageTableBody"),
+        coverageCheckedAt: document.getElementById("coverageCheckedAt"),
+        coverageRetailerCount: document.getElementById("coverageRetailerCount"),
+        productsContainer: document.getElementById("productsContainer"),
+        resultsHeader: document.getElementById("resultsHeader"),
+        resultsCountText: document.getElementById("resultsCountText"),
+        resultsFiltersList: document.getElementById("resultsFiltersList"),
+        paginationBar: document.getElementById("paginationBar"),
+        prevPageBtn: document.getElementById("prevPageBtn"),
+        nextPageBtn: document.getElementById("nextPageBtn"),
+        pageInfoText: document.getElementById("pageInfoText"),
+        loadingIndicator: document.getElementById("loadingIndicator"),
+        errorMessage: document.getElementById("errorMessage"),
+        errorDetails: document.getElementById("errorDetails"),
+        emptyMessage: document.getElementById("emptyMessage"),
+        statProducts: document.getElementById("statProducts"),
+        statObservations: document.getElementById("statObservations")
+      };
+
+      const retailerLabels = {};
+      function retailerLabel(name) { return retailerLabels[name] || name; }
+
+      function safeText(str) {
+        return str === null || str === undefined ? "" : String(str);
+      }
+
+      function isSafeHttpUrl(url) {
+        if (!url || typeof url !== "string") return false;
+        const trimmed = url.trim().toLowerCase();
+        return trimmed.startsWith("http://") || trimmed.startsWith("https://");
+      }
+
+      function createSafeLink(text, url) {
+        const a = document.createElement("a");
+        a.textContent = text;
+        if (isSafeHttpUrl(url)) {
+          a.href = url;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        } else {
+          a.href = "#";
+          a.onclick = function (e) { e.preventDefault(); };
+        }
+        return a;
+      }
+
+      function formatDateStr(d) {
+        if (!d) return "";
+        const m = String(d).match(/^(\d{4})-(\d{2})-(\d{2})/);
+        if (m) {
+          return m[3] + "." + m[2] + "." + m[1];
+        }
+        return String(d);
+      }
+
+      function formatPrice(cents, currency) {
+        if (typeof cents !== "number" || isNaN(cents)) return "—";
+        const euros = (cents / 100).toFixed(2).replace(".", ",");
+        const curr = currency ? currency : "EUR";
+        return euros + " " + (curr === "EUR" ? "€" : curr);
+      }
+
+      function formatStatusBadge(status) {
+        const badge = document.createElement("span");
+        badge.className = "badge ";
+        switch (status) {
+          case "currently_advertised":
+            badge.className += "badge-success";
+            badge.textContent = "Aktuelles Angebot";
+            break;
+          case "observed_today":
+            badge.className += "badge-success";
+            badge.textContent = "Heute beobachtet";
+            break;
+          case "recently_observed":
+            badge.className += "badge-warn";
+            badge.textContent = "Kürzlich beobachtet · Preis unbestätigt";
+            break;
+          case "historical":
+            badge.className += "badge-warn";
+            badge.textContent = "Archivierter Preis";
+            break;
+          case "expired":
+            badge.className += "badge-danger";
+            badge.textContent = "Abgelaufen";
+            break;
+          case "upcoming":
+            badge.className += "badge-info";
+            badge.textContent = "Demnächst gültig";
+            break;
+          case "stale":
+            badge.className += "badge-warn";
+            badge.textContent = "Ältere Beobachtung";
+            break;
+          case "undated":
+            badge.className += "badge-neutral";
+            badge.textContent = "Undatiert";
+            break;
+          default:
+            badge.className += "badge-neutral";
+            badge.textContent = status ? safeText(status) : "Keine Angabe";
+        }
+        return badge;
+      }
+
+      function formatScope(scope, postalCode, storeId) {
+        switch (scope) {
+          case "store":
+            return "Filiale vor Ort" + (postalCode ? " (PLZ " + postalCode + ")" : "") + (storeId ? " [Markt " + storeId + "]" : "");
+          case "chain_advertised":
+            return "Aktionsprospekt (teilnehmende Filialen)";
+          case "online":
+            return "Online-Shop / Lieferservice";
+          case "store_channel":
+            return "Filialangebot" + (postalCode ? " (PLZ " + postalCode + ")" : "") + (storeId ? " [Markt " + storeId + "]" : "");
+          case "postal_code":
+            return "Regionale Angebote" + (postalCode ? " für PLZ " + postalCode : "");
+          case "regional":
+            return "Regionaler Preis; Marktgeltung prüfen";
+          case "unknown":
+          case "unknown_region":
+            return "Markt / Region nicht bestätigt";
+          default:
+            return scope ? safeText(scope) : "Nicht spezifiziert";
+        }
+      }
+
+      function formatSource(source) {
+        if (!source) return "—";
+        const s = String(source).trim().toLowerCase();
+        if (s === "open_prices") return "Open Prices · Beleg";
+        if (s === "marktguru") return "Marktguru · Angebot";
+        if (s === "german_supermarket_prices" || s === "rewe_price_data") return "Preisarchiv";
+        if (s.includes("browser") || s.endsWith("_website") || s.startsWith("retailer_website") || s.includes(":store:") || s.startsWith("aldi") || s.startsWith("kaufland")) return "Händlerseite";
+        if (s === "brochure" || s === "prospekt") return "Aktionsprospekt";
+        if (s === "receipt" || s === "kassenbon") return "Kassenbon";
+        if (s === "online" || s === "web" || s === "store_crawler" || s === "crawler") return "Händler-Webseite";
+        if (s === "crowdsourced" || s === "community") return "Community-Meldung";
+        if (s === "openfoodfacts") return "Open Food Facts";
+        return safeText(source);
+      }
+
+      function formatIdentityBadge(identity, ean) {
+        const badge = document.createElement("span");
+        badge.className = "badge ";
+        const idStr = String(identity || "").toLowerCase();
+        const isRestricted = idStr.includes("restricted") || (ean && /^(02|2)\d{6,12}$/.test(String(ean)));
+
+        if (isRestricted) {
+          badge.className += "badge-warn";
+          badge.textContent = "Händler-Barcode (intern)";
+          badge.title = "Interner Barcode: Nur für diesen Händler gültig";
+        } else if (ean) {
+          badge.className += "badge-success";
+          badge.textContent = "Globale EAN / GTIN";
+          badge.title = "Hersteller-Barcode: Händlerübergreifend vergleichbar";
+        } else {
+          badge.className += "badge-neutral";
+          badge.textContent = "Händler-Artikel";
+          badge.title = "Ohne globale EAN: Kein händlerübergreifender Vergleich möglich";
+        }
+        return badge;
+      }
+
+      async function loadCatalogStatus() {
+        try {
+          const res = await fetch("/v1/products/status");
+          if (!res.ok) return;
+          const data = await res.json();
+
+          if (data && typeof data.product_count === "number") {
+            els.statProducts.textContent = data.product_count.toLocaleString("de-DE");
+          } else if (data && typeof data.products_count === "number") {
+            els.statProducts.textContent = data.products_count.toLocaleString("de-DE");
+          }
+
+          if (data && data.price_observations && Array.isArray(data.price_observations.sources)) {
+            const totalObs = data.price_observations.sources.reduce(function (sum, s) {
+              return sum + (typeof s.count === "number" ? s.count : 0);
+            }, 0);
+            els.statObservations.textContent = totalObs.toLocaleString("de-DE");
+          } else if (data && typeof data.observations_count === "number") {
+            els.statObservations.textContent = data.observations_count.toLocaleString("de-DE");
+          }
+        } catch (e) {
+          // non-critical, silent fallback
+        }
+      }
+
+      async function loadCoverage() {
+        try {
+          const res = await fetch("/v1/coverage");
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          const data = await res.json();
+
+          if (data.checked_at) {
+            els.coverageCheckedAt.textContent = "Berichtsstand: " + new Date(data.checked_at).toLocaleString("de-DE");
+          } else {
+            els.coverageCheckedAt.textContent = "Status aktuell";
+          }
+
+          const retailers = data.retailers || [];
+          state.retailersList = retailers;
+          els.coverageRetailerCount.textContent = retailers.length + " Händler geprüft";
+
+          // Populate Retailer Select
+          while (els.retailerSelect.options.length > 1) {
+            els.retailerSelect.remove(1);
+          }
+          retailers.forEach(function (r) {
+            const opt = document.createElement("option");
+            retailerLabels[r.id] = r.name;
+            opt.value = r.name || r.id;
+            opt.textContent = (r.name || r.id) + (r.price_count ? " (" + r.price_count + " erfasste Preise)" : "");
+            els.retailerSelect.appendChild(opt);
+          });
+
+          // Populate Coverage Table
+          els.coverageTableBody.textContent = "";
+          if (retailers.length === 0) {
+            const tr = document.createElement("tr");
+            const td = document.createElement("td");
+            td.colSpan = 6;
+            td.textContent = "Keine Händlerprüfungen gemeldet.";
+            tr.appendChild(td);
+            els.coverageTableBody.appendChild(tr);
+            return;
+          }
+
+          retailers.forEach(function (r) {
+            const tr = document.createElement("tr");
+
+            // Händler
+            const tdName = document.createElement("td");
+            const strong = document.createElement("strong");
+            strong.textContent = safeText(r.name || r.id);
+            tdName.appendChild(strong);
+            if (r.id) {
+              const sub = document.createElement("div");
+              sub.style.fontSize = "0.75rem";
+              sub.style.color = "var(--text-muted)";
+              sub.textContent = "ID: " + r.id;
+              tdName.appendChild(sub);
+            }
+            tr.appendChild(tdName);
+
+            // Vollsortiment erfasst
+            const tdFull = document.createElement("td");
+            const fullBadge = document.createElement("span");
+            if (r.full_price_list_downloaded) {
+              fullBadge.className = "badge badge-success";
+              fullBadge.textContent = "Ja (Vollsortiment)";
+            } else {
+              fullBadge.className = "badge badge-neutral";
+              fullBadge.textContent = "Nein (Nur Angebote/Teilbestand)";
+            }
+            tdFull.appendChild(fullBadge);
+            tr.appendChild(tdFull);
+
+            // Preis-Status & Grund
+            const tdStatus = document.createElement("td");
+            const pBadge = document.createElement("span");
+            const statusText = safeText(r.price_status || "Keine Daten");
+            const isPositive = statusText && !statusText.toLowerCase().includes("kein") && (r.price_count > 0 || statusText.toLowerCase().includes("angebot"));
+            pBadge.className = "badge " + (isPositive ? "badge-info" : "badge-neutral");
+            pBadge.textContent = statusText;
+            tdStatus.appendChild(pBadge);
+            if (r.reason) {
+              const reasonDiv = document.createElement("div");
+              reasonDiv.style.fontSize = "0.75rem";
+              reasonDiv.style.color = "var(--text-muted)";
+              reasonDiv.style.marginTop = "0.25rem";
+              reasonDiv.textContent = safeText(r.reason);
+              tdStatus.appendChild(reasonDiv);
+            }
+            tr.appendChild(tdStatus);
+
+            // Preise & EANs
+            const tdCounts = document.createElement("td");
+            tdCounts.textContent = (typeof r.price_count === "number" ? r.price_count : 0) + " Preise / " +
+                                   (typeof r.ean_count === "number" ? r.ean_count : 0) + " EANs";
+            tr.appendChild(tdCounts);
+
+            // Prüfdetails / Web-Abfragen
+            const tdAttempts = document.createElement("td");
+            const attemptsList = document.createElement("div");
+            attemptsList.className = "attempts-list";
+            if (Array.isArray(r.attempts) && r.attempts.length > 0) {
+              r.attempts.forEach(function (att) {
+                const line = document.createElement("div");
+                const methodSpan = document.createElement("strong");
+                methodSpan.textContent = safeText(att.method || "GET") + " ";
+                line.appendChild(methodSpan);
+
+                if (att.url) {
+                  const link = createSafeLink(att.url, att.url);
+                  line.appendChild(link);
+                }
+
+                if (att.http_status) {
+                  const statusSpan = document.createElement("span");
+                  statusSpan.style.marginLeft = "0.35rem";
+                  statusSpan.className = "badge badge-neutral";
+                  statusSpan.textContent = "HTTP " + att.http_status;
+                  line.appendChild(statusSpan);
+                }
+                if (att.reason) {
+                  const rSpan = document.createElement("div");
+                  rSpan.style.color = "#64748b";
+                  rSpan.textContent = "Hinweis: " + safeText(att.reason);
+                  line.appendChild(rSpan);
+                }
+                attemptsList.appendChild(line);
+              });
+            } else {
+              attemptsList.textContent = "Keine Abfrageprotokolle vorhanden";
+            }
+            tdAttempts.appendChild(attemptsList);
+            tr.appendChild(tdAttempts);
+
+            // PDFs
+            const tdPdfs = document.createElement("td");
+            const pdfList = document.createElement("div");
+            pdfList.className = "pdf-list";
+            if (Array.isArray(r.downloaded_pdfs) && r.downloaded_pdfs.length > 0) {
+              r.downloaded_pdfs.forEach(function (pdfUrl) {
+                const pLine = document.createElement("div");
+                const pdfHref = typeof pdfUrl === "string" ? pdfUrl : (pdfUrl.url || pdfUrl.source_url || "");
+                const link = createSafeLink("Prospekt öffnen (PDF)", pdfHref);
+                link.className = "source-link";
+                pLine.appendChild(link);
+                pdfList.appendChild(pLine);
+              });
+            } else {
+              pdfList.textContent = "—";
+            }
+            tdPdfs.appendChild(pdfList);
+            tr.appendChild(tdPdfs);
+
+            els.coverageTableBody.appendChild(tr);
+          });
+        } catch (err) {
+          els.coverageTableBody.textContent = "";
+          const tr = document.createElement("tr");
+          const td = document.createElement("td");
+          td.colSpan = 6;
+          td.textContent = "Fehler beim Laden der Händlerabdeckung: " + safeText(err.message);
+          tr.appendChild(td);
+          els.coverageTableBody.appendChild(tr);
+        }
+      }
+
+      let searchVersion = 0;
+      let activeSearch = null;
+      async function executeCompare() {
+        const version = ++searchVersion;
+        if (activeSearch) activeSearch.abort();
+        activeSearch = new AbortController();
+        els.loadingIndicator.style.display = "block";
+        els.errorMessage.style.display = "none";
+        els.emptyMessage.style.display = "none";
+        els.productsContainer.textContent = "";
+        els.resultsHeader.style.display = "none";
+        els.paginationBar.style.display = "none";
+
+        const params = new URLSearchParams();
+        if (state.query) {
+          params.set("q", state.query);
+        }
+        if (state.plz) {
+          params.set("postal_code", state.plz);
+        }
+        if (state.retailer) {
+          params.set("retailer", state.retailer);
+        }
+        if (state.includeMembership) {
+          params.set("include_membership", "true");
+        }
+        if (state.includeHistory) {
+          params.set("include_history", "true");
+        }
+        params.set("limit", String(state.limit));
+        params.set("offset", String(state.offset));
+
+        try {
+          const response = await fetch("/v1/compare?" + params.toString(), {signal: activeSearch.signal});
+          if (!response.ok) {
+            const errData = await response.json().catch(function () { return {}; });
+            throw new Error(errData.detail || "HTTP Fehler " + response.status);
+          }
+          const data = await response.json();
+          if (version !== searchVersion) return;
+          renderResults(data);
+        } catch (err) {
+          if (version !== searchVersion || err.name === "AbortError") return;
+          els.loadingIndicator.style.display = "none";
+          els.errorMessage.style.display = "block";
+          els.errorDetails.textContent = safeText(err.message || "Ein unerwarteter Fehler ist aufgetreten.");
+        }
+      }
+
+      function renderResults(data) {
+        els.loadingIndicator.style.display = "none";
+        const items = data.items || [];
+        const total = typeof data.total === "number" ? data.total : items.length;
+        state.total = total;
+
+        // Render Header info
+        els.resultsHeader.style.display = "flex";
+        const fromIndex = total === 0 ? 0 : state.offset + 1;
+        const toIndex = Math.min(state.offset + state.limit, total);
+        els.resultsCountText.textContent = total + " Artikel gefunden (Zeige " + fromIndex + "–" + toIndex + ")";
+
+        // Filter badges
+        els.resultsFiltersList.textContent = "";
+        if (state.plz) {
+          const b = document.createElement("span");
+          b.className = "badge badge-info";
+          b.textContent = "PLZ: " + state.plz;
+          els.resultsFiltersList.appendChild(b);
+        }
+        if (state.retailer) {
+          const b = document.createElement("span");
+          b.className = "badge badge-neutral";
+          b.textContent = "Händler: " + state.retailer;
+          els.resultsFiltersList.appendChild(b);
+        }
+        if (state.includeMembership) {
+          const b = document.createElement("span");
+          b.className = "badge badge-warn";
+          b.textContent = "Inkl. App/Club";
+          els.resultsFiltersList.appendChild(b);
+        }
+        if (state.includeHistory) {
+          const b = document.createElement("span");
+          b.className = "badge badge-warn";
+          b.textContent = "Inkl. Historie";
+          els.resultsFiltersList.appendChild(b);
+        }
+
+        if (items.length === 0) {
+          els.emptyMessage.style.display = "block";
+          els.paginationBar.style.display = "none";
+          return;
+        }
+
+        // Render items
+        items.forEach(function (item) {
+          const card = document.createElement("article");
+          card.className = "product-card";
+
+          // Top Bar
+          const top = document.createElement("div");
+          top.className = "product-card-top";
+
+          const titles = document.createElement("div");
+          titles.className = "product-titles";
+
+          if (item.brand) {
+            const b = document.createElement("div");
+            b.className = "product-brand";
+            b.textContent = item.brand;
+            titles.appendChild(b);
+          }
+
+          const h3 = document.createElement("h3");
+          h3.className = "product-name";
+          h3.textContent = item.name || "Unbenannter Artikel";
+          titles.appendChild(h3);
+
+          if (item.package_label) {
+            const pkg = document.createElement("span");
+            pkg.className = "product-package";
+            pkg.textContent = "Packungsgröße: " + item.package_label;
+            titles.appendChild(pkg);
+          }
+          top.appendChild(titles);
+
+          // Meta right
+          const meta = document.createElement("div");
+          meta.className = "product-meta";
+
+          meta.appendChild(formatIdentityBadge(item.identity, item.ean));
+
+          if (item.ean) {
+            const eanBox = document.createElement("div");
+            eanBox.className = "ean-box";
+            const eanSpan = document.createElement("span");
+            eanSpan.textContent = "EAN " + item.ean;
+            eanBox.appendChild(eanSpan);
+
+            const copyBtn = document.createElement("button");
+            copyBtn.type = "button";
+            copyBtn.className = "btn-copy";
+            copyBtn.textContent = "Kopieren";
+            copyBtn.title = "EAN kopieren";
+            copyBtn.addEventListener("click", function () {
+              if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(item.ean).then(function () {
+                  copyBtn.textContent = "Kopiert!";
+                  setTimeout(function () { copyBtn.textContent = "Kopieren"; }, 1500);
+                }).catch(function () {
+                  copyBtn.textContent = "Fehler";
+                });
+              }
+            });
+            eanBox.appendChild(copyBtn);
+            meta.appendChild(eanBox);
+          } else {
+            const noEan = document.createElement("div");
+            noEan.style.fontSize = "0.75rem";
+            noEan.style.color = "var(--text-muted)";
+            noEan.textContent = "Keine globale EAN";
+            meta.appendChild(noEan);
+          }
+
+          top.appendChild(meta);
+          card.appendChild(top);
+
+          // Prices Section
+          const pricesContainer = document.createElement("div");
+          pricesContainer.className = "prices-container";
+
+          const prices = Array.isArray(item.prices) ? item.prices : [];
+          if (prices.length === 0) {
+            const notice = document.createElement("div");
+            notice.className = "catalog-only-notice";
+            notice.textContent = "Keine aktuellen Preise oder Angebote für diesen Artikel erfasst.";
+            pricesContainer.appendChild(notice);
+          } else {
+            const tableWrapper = document.createElement("div");
+            tableWrapper.className = "price-table-wrapper";
+
+            const table = document.createElement("table");
+            table.className = "price-table";
+            const thead = document.createElement("thead");
+            thead.innerHTML = "<tr>" +
+              "<th>Händler &amp; Kanal</th>" +
+              "<th>Preis</th>" +
+              "<th>Status &amp; Gültigkeit</th>" +
+              "<th>Ort &amp; Geltungsbereich</th>" +
+              "<th>Bedingungen / Vorteil</th>" +
+              "<th>Quelle</th>" +
+              "</tr>";
+            table.appendChild(thead);
+
+            const tbody = document.createElement("tbody");
+
+            prices.forEach(function (p) {
+              const tr = document.createElement("tr");
+
+              // Händler & Kanal
+              const tdRetailer = document.createElement("td");
+              const retDiv = document.createElement("div");
+              retDiv.className = "price-retailer";
+              retDiv.textContent = safeText(retailerLabel(p.retailer) || "Händler");
+              tdRetailer.appendChild(retDiv);
+
+              if (p.channel) {
+                const chan = document.createElement("div");
+                chan.className = "retailer-channel";
+                chan.textContent = (p.channel === "store" || p.channel === "instore") ? "Filiale" : p.channel === "online" ? "Online" : p.channel === "advertised" ? "Beworbenes Angebot" : safeText(p.channel);
+                tdRetailer.appendChild(chan);
+              }
+              tr.appendChild(tdRetailer);
+
+              // Preis
+              const tdPrice = document.createElement("td");
+              const priceDiv = document.createElement("div");
+              priceDiv.className = "price-cell";
+              priceDiv.textContent = (p.price_qualifier === "from" ? "ab " : "") + formatPrice(p.price_cents, p.currency);
+              tdPrice.appendChild(priceDiv);
+              if (p.kind) {
+                const kindDiv = document.createElement("div");
+                kindDiv.style.fontSize = "0.75rem";
+                kindDiv.style.color = "var(--text-muted)";
+                kindDiv.textContent = p.kind === "regular" ? "Normalpreis" : (p.kind === "special" || p.kind === "offer") ? "Aktionspreis" : "Preisart nicht bestätigt";
+                tdPrice.appendChild(kindDiv);
+              }
+              tr.appendChild(tdPrice);
+
+              // Status & Gültigkeit
+              const tdStatus = document.createElement("td");
+              tdStatus.appendChild(formatStatusBadge(p.status));
+              const datesDiv = document.createElement("div");
+              datesDiv.style.fontSize = "0.75rem";
+              datesDiv.style.color = "var(--text-muted)";
+              datesDiv.style.marginTop = "0.25rem";
+              if (p.valid_from || p.valid_until) {
+                const vFrom = formatDateStr(p.valid_from);
+                const vUntil = formatDateStr(p.valid_until);
+                if (vFrom && vUntil) {
+                  datesDiv.textContent = "Gültig: " + vFrom + " bis " + vUntil;
+                } else if (vUntil) {
+                  datesDiv.textContent = "Gültig bis " + vUntil;
+                } else {
+                  datesDiv.textContent = "Gültig ab " + vFrom;
+                }
+              } else if (p.price_date) {
+                datesDiv.textContent = "Erfasst am " + formatDateStr(p.price_date);
+              } else {
+                datesDiv.textContent = "Ohne Gültigkeitszeitraum";
+              }
+              if ((p.valid_from || p.valid_until) && p.price_date) {
+                datesDiv.textContent += " · Erfasst am " + formatDateStr(p.price_date);
+              }
+              tdStatus.appendChild(datesDiv);
+              tr.appendChild(tdStatus);
+
+              // Geltungsbereich / Ort
+              const tdScope = document.createElement("td");
+              const scopeText = document.createElement("div");
+              scopeText.style.fontSize = "0.85rem";
+              scopeText.textContent = formatScope(p.scope, p.postal_code, p.store_id);
+              tdScope.appendChild(scopeText);
+              tr.appendChild(tdScope);
+
+              // Bedingungen / Vorteil
+              const tdCond = document.createElement("td");
+              if (p.requires_membership) {
+                const mBadge = document.createElement("span");
+                mBadge.className = "badge badge-warn";
+                mBadge.style.marginBottom = "0.2rem";
+                mBadge.textContent = "App / Kundenkarte nötig";
+                tdCond.appendChild(mBadge);
+              }
+              if (p.bonus_credit_cents) {
+                const bDiv = document.createElement("div");
+                bDiv.style.fontSize = "0.75rem";
+                bDiv.style.color = "var(--mint-dark)";
+                bDiv.textContent = "Guthaben: +" + formatPrice(p.bonus_credit_cents, p.currency);
+                tdCond.appendChild(bDiv);
+              }
+              if (p.bonus_credit_percent) {
+                const bDiv = document.createElement("div");
+                bDiv.style.fontSize = "0.75rem";
+                bDiv.style.color = "var(--mint-dark)";
+                bDiv.textContent = "Rabatt: " + p.bonus_credit_percent + "%";
+                tdCond.appendChild(bDiv);
+              }
+              if (p.conditions) {
+                const cDiv = document.createElement("div");
+                cDiv.style.fontSize = "0.75rem";
+                cDiv.style.color = "var(--text-muted)";
+                cDiv.textContent = p.conditions;
+                tdCond.appendChild(cDiv);
+              }
+              if (!p.requires_membership && !p.bonus_credit_cents && !p.bonus_credit_percent && !p.conditions) {
+                tdCond.textContent = "—";
+              }
+              tr.appendChild(tdCond);
+
+              // Quelle
+              const tdSource = document.createElement("td");
+              const displaySource = formatSource(p.source);
+              if (p.source_url && isSafeHttpUrl(p.source_url)) {
+                const link = createSafeLink(displaySource !== "—" ? displaySource : "Quellennachweis", p.source_url);
+                link.className = "source-link";
+                tdSource.appendChild(link);
+              } else {
+                tdSource.textContent = displaySource;
+              }
+              tr.appendChild(tdSource);
+
+              tbody.appendChild(tr);
+            });
+
+            table.appendChild(tbody);
+            tableWrapper.appendChild(table);
+            pricesContainer.appendChild(tableWrapper);
+          }
+
+          card.appendChild(pricesContainer);
+          els.productsContainer.appendChild(card);
+        });
+
+        // Paging
+        const totalPages = Math.ceil(total / state.limit) || 1;
+        const currentPage = Math.floor(state.offset / state.limit) + 1;
+
+        if (totalPages > 1) {
+          els.paginationBar.style.display = "flex";
+          els.pageInfoText.textContent = "Seite " + currentPage + " von " + totalPages;
+          els.prevPageBtn.disabled = currentPage <= 1;
+          els.nextPageBtn.disabled = currentPage >= totalPages;
+        } else {
+          els.paginationBar.style.display = "none";
+        }
+      }
+
+      // Event Listeners
+      els.searchForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        state.query = els.queryInput.value.trim();
+        state.plz = els.plzInput.value.trim();
+        state.retailer = els.retailerSelect.value;
+        state.includeMembership = els.membershipToggle.checked;
+        state.includeHistory = els.historyToggle.checked;
+        state.offset = 0;
+        executeCompare();
+      });
+
+      els.prevPageBtn.addEventListener("click", function () {
+        if (state.offset >= state.limit) {
+          state.offset -= state.limit;
+          executeCompare();
+          window.scrollTo({ top: els.resultsSection.offsetTop - 40, behavior: "smooth" });
+        }
+      });
+
+      els.nextPageBtn.addEventListener("click", function () {
+        if (state.offset + state.limit < state.total) {
+          state.offset += state.limit;
+          executeCompare();
+          window.scrollTo({ top: els.resultsSection.offsetTop - 40, behavior: "smooth" });
+        }
+      });
+
+      function toggleCoverage() {
+        const isHidden = els.coverageBody.style.display === "none";
+        els.coverageBody.style.display = isHidden ? "block" : "none";
+        els.coverageChevron.textContent = isHidden ? "▲" : "▼";
+        els.coverageToggle.setAttribute("aria-expanded", isHidden ? "true" : "false");
+      }
+
+      els.coverageToggle.addEventListener("click", toggleCoverage);
+      els.coverageToggle.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleCoverage();
+        }
+      });
+
+      async function loadImportStatus() {
+        const button = document.getElementById("refreshImportStatus");
+        const note = document.getElementById("importStatusNote");
+        const tbody = document.getElementById("importStatusRows");
+        button.disabled = true;
+        const labels = {
+          completed: "Durchlauf abgeschlossen", completed_with_errors: "Abgeschlossen mit Fehlern",
+          listing_completed: "Preisliste erfasst; EAN-Ergänzung separat",
+          in_progress: "Durchlauf offen", checked: "Seiten geprüft", imported: "Importiert",
+          failed: "Abruffehler", blocked: "Abruf blockiert", cooldown: "Abrufpause",
+          manual: "Browserimport", unknown: "Noch kein Importstand", unreadable: "Status nicht lesbar",
+          locked: "Beim letzten Versuch bereits belegt"
+        };
+        try {
+          const response = await fetch("/v1/import-status");
+          if (!response.ok) throw new Error("HTTP " + response.status);
+          const data = await response.json();
+          tbody.textContent = "";
+          data.items.forEach(function (item) {
+            const tr = document.createElement("tr");
+            const progress = [];
+            if (item.pages_completed !== undefined) progress.push(item.pages_completed.toLocaleString("de-DE") + " Seiten erfasst");
+            if (item.pages_pending !== undefined) progress.push(item.pages_pending.toLocaleString("de-DE") + " Seiten offen");
+            if (item.cycle_products !== undefined) progress.push(item.cycle_products.toLocaleString("de-DE") + " Artikel im Durchlauf");
+            if (item.error_count) progress.push(item.error_count + " Seitenfehler");
+            let status = labels[item.status] || "Unbekannt";
+            if (item.checkpoint_at) status += " · " + new Date(item.checkpoint_at).toLocaleString("de-DE");
+            if (item.retry_at) status += " · nächster Versuch frühestens " + new Date(item.retry_at).toLocaleString("de-DE");
+            [item.name, status, progress.join(" · ") || "–",
+              item.observations.toLocaleString("de-DE"), item.latest_price_date || "Kein Preis erfasst"
+            ].forEach(function (value) {
+              const td = document.createElement("td");
+              td.textContent = value;
+              tr.appendChild(td);
+            });
+            tbody.appendChild(tr);
+          });
+          note.textContent = "Stand: " + new Date(data.checked_at).toLocaleString("de-DE") + ". " + data.note;
+        } catch (error) {
+          note.textContent = "Der Importstand konnte nicht geladen werden: " + error.message;
+        } finally {
+          button.disabled = false;
+        }
+      }
+      let importStatusLoaded = false;
+      document.getElementById("importStatusPanel").addEventListener("toggle", function (event) {
+        if (event.target.open && !importStatusLoaded) {
+          importStatusLoaded = true;
+          loadImportStatus();
+        }
+      });
+      document.getElementById("refreshImportStatus").addEventListener("click", loadImportStatus);
+
+      // Initial bootstrap
+      const initialParams = new URLSearchParams(location.search);
+      state.query = initialParams.get("q") || initialParams.get("ean") || "";
+      els.queryInput.value = state.query;
+      state.includeHistory = initialParams.get("include_history") === "true";
+      els.historyToggle.checked = state.includeHistory;
+      loadCoverage();
+      loadCatalogStatus();
+      executeCompare();
+    })();
+  </script>
+</body>
+</html>

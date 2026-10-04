@@ -1,0 +1,11 @@
+[Unit]
+Description=Recurring Denns BIO COMPANY Alnatura and Netto offers
+
+[Timer]
+OnCalendar=*-*-* 00,06,12,18:20:00 Europe/Berlin
+RandomizedDelaySec=30
+Persistent=true
+Unit=pricewatch-recovered-offers-e70d379d.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,38 @@
+{
+  "offerTiles": [
+    {
+      "title": "Ferrero-Kühlartikel",
+      "type": "food",
+      "quantity": "Gilt nicht für Eis und Tiefkühlartikel",
+      "lowestPrice30Days": null,
+      "priceFrom": false,
+      "price": "20% Rabatt",
+      "actionPrice": false,
+      "actionPriceFrom": false,
+      "showOriginalPrice": false,
+      "multiBuy": false,
+      "bargainPrice": false,
+      "originalPrice": null,
+      "originalPriceType": null,
+      "basePrice": null,
+      "discount": true,
+      "discountPercentage": "-20%",
+      "onlyOnline": false,
+      "alsoOnline": false,
+      "imageRendition": {
+        "tileXs": "https://cdn.penny.de/dam/jcr:a8b0c672-cfe1-4ca7-93c9-6a1d996ebe6a/KW41_RA_Ferrero.png?impolicy=penny&imwidth=100",
+        "tileSm": "https://cdn.penny.de/dam/jcr:a8b0c672-cfe1-4ca7-93c9-6a1d996ebe6a/KW41_RA_Ferrero.png?impolicy=penny&imwidth=200",
+        "tileMd": "https://cdn.penny.de/dam/jcr:a8b0c672-cfe1-4ca7-93c9-6a1d996ebe6a/KW41_RA_Ferrero.png?impolicy=penny&imwidth=400",
+        "tileLg": "https://cdn.penny.de/dam/jcr:a8b0c672-cfe1-4ca7-93c9-6a1d996ebe6a/KW41_RA_Ferrero.png?impolicy=penny&imwidth=600",
+        "tileXl": "https://cdn.penny.de/dam/jcr:a8b0c672-cfe1-4ca7-93c9-6a1d996ebe6a/KW41_RA_Ferrero.png?impolicy=penny&imwidth=800",
+        "imageAlt": "Ferrero-Kühlartikel 20% Rabatt",
+        "imageTitle": "Ferrero-Kühlartikel 20% Rabatt Gilt nicht für Eis und Tiefkühlartikel"
+      },
+      "productData": "{\"id\":\"6f8e8764-8ec8-4721-a915-af37a489945c\",\"name\":\"ferrero-kuehlartikel\",\"category\":\"framstag\",\"price\":\"20.0000\",\"units\":1,\"rrp\":\"not_set\",\"savingsPercent\":\"20.0000\",\"savingsAmount\":\"0.0000\",\"disturberType\":\"Kein Störer\",\"listPosition\":\"1\",\"shoppable\":\"not_set\",\"promotion\":\"normaler Preis\"}",
+      "linkHref": "/angebote/2026-41/framstag/ferrero-kuehlartikel",
+      "detailLinkHref": "/angebote/2026-41/framstag/ferrero-kuehlartikel~mgnlArea=main~",
+      "uuid": "6f8e8764-8ec8-4721-a915-af37a489945c",
+      "primaryType": "offer"
+    }
+  ]
+}

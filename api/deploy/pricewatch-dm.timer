@@ -1,0 +1,11 @@
+[Unit]
+Description=Resume dm prices every 30 minutes, respecting source cooldown
+
+[Timer]
+OnCalendar=*:0/30
+RandomizedDelaySec=30
+Persistent=true
+Unit=pricewatch-dm-e70d379d.service
+
+[Install]
+WantedBy=timers.target

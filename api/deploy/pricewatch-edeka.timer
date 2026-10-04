@@ -1,0 +1,11 @@
+[Unit]
+Description=Sync EDEKA public offers every six hours
+
+[Timer]
+OnCalendar=*-*-* 00,06,12,18:30:00 Europe/Berlin
+RandomizedDelaySec=30
+Persistent=true
+Unit=pricewatch-edeka-e70d379d.service
+
+[Install]
+WantedBy=timers.target

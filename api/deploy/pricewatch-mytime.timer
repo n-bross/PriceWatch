@@ -1,0 +1,11 @@
+[Unit]
+Description=Recurring myTime price listings and barcode enrichment
+
+[Timer]
+OnCalendar=*-*-* *:12/15:00
+RandomizedDelaySec=30
+Persistent=true
+Unit=pricewatch-mytime-e70d379d.service
+
+[Install]
+WantedBy=timers.target

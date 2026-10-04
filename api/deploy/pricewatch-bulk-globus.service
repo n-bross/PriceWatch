@@ -1,0 +1,14 @@
+[Unit]
+Description=GLOBUS catalogue refresh batches
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=@API_DIR@
+EnvironmentFile=@API_DIR@/.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=@API_DIR@/.venv/bin/python scripts/sync_bulk_catalogs.py --source globus --max-pages 100 --workers 2 --delay 0.5
+TimeoutStartSec=840
+Nice=10
+UMask=0077

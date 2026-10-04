@@ -1,0 +1,13 @@
+[Unit]
+Description=Refresh PriceWatch product catalog from Open Food Facts bulk export
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=@API_DIR@
+EnvironmentFile=@API_DIR@/.env
+ExecStart=@API_DIR@/.venv/bin/python -m pricewatch_api.cli catalog-sync
+TimeoutStartSec=7200
+Nice=10
+UMask=0077

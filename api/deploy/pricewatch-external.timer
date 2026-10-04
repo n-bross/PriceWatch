@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily PriceWatch external prices refresh
+
+[Timer]
+OnCalendar=*-*-* 05:00:00 Europe/Berlin
+RandomizedDelaySec=15m
+Persistent=true
+Unit=pricewatch-external-e70d379d.service
+
+[Install]
+WantedBy=timers.target
