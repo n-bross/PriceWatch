@@ -362,6 +362,9 @@ ausgehendes HTTPS. Es ist kein Cloud-Deployment durchgeführt worden.
 cd api
 uv run pytest -q
 uv run ruff check .
+cd tests/browser
+npm ci
+npm test
 ```
 
 Die Tests verwenden temporäre Datenbanken und einen kleinen Ausschnitt der
@@ -369,6 +372,19 @@ echten ALDI-Antwort als Parserfixture. Reguläre Tests greifen nicht aufs Intern
 Optionaler PostgreSQL-/RLS-Test: `PRICEWATCH_TEST_DATABASE_URL` auf eine
 **wegwerfbare Testdatenbank** mit bereits angewandter Migration und den Rollen
 `anon`, `authenticated`, `service_role` setzen; dieser Test ersetzt die Testkatalogdaten.
+
+GitHub Actions führt diese Prüfungen bei Pushes und Pull Requests automatisch aus.
+Der Python-Job verwendet eine frische PostgreSQL-16-Datenbank, legt mit
+`tests/postgres-roles.sql` ausschließlich Testrollen an und spielt die
+Backend-Migrationen 0004–0009 ein. Dadurch wird der PostgreSQL-/RLS-Test in CI
+nicht übersprungen. Die iOS-/Supabase-Migrationen 0001–0003 und die manuelle
+iOS-Abnahme sind davon getrennt.
+
+Der [regelmäßige REWE-Abholpreisimport](docs/rewe-recurring.md) ergänzt den
+manuellen Browserimport um einen begrenzten, marktbezogenen Abruf mit Fehlerpause.
+Der Sortimentscrawler importiert zusätzlich nicht rabattierte Artikel und setzt
+unvollständige Durchläufe per Checkpoint fort. Der erste produktive Durchlauf
+erfasste 14.702 Artikel für den Abholmarkt 461766 / PLZ 85567.
 
 
 ## Ergänzende externe Preisbeobachtungen

@@ -530,10 +530,10 @@ def register_comparison_routes(app: FastAPI, db: Database) -> None:
             )
             cand_ean_selects.append(
                 select(observations.c.ean.label("ean")).where(
-                    *obs_conditions,
                     observations.c.normalized_name.contains(q_term, autoescape=True),
                     observations.c.ean.isnot(None),
                     observations.c.ean != "",
+                    *obs_conditions,
                 )
             )
             cand_eans_cte = (
@@ -554,9 +554,9 @@ def register_comparison_routes(app: FastAPI, db: Database) -> None:
                 )
                 .union(
                     select(obs_key.label("item_key")).where(
-                        *obs_conditions,
                         observations.c.normalized_name.contains(q_term, autoescape=True),
                         or_(observations.c.ean.is_(None), observations.c.ean == ""),
+                        *obs_conditions,
                     )
                 )
                 .cte("cand_art_keys")
@@ -572,11 +572,14 @@ def register_comparison_routes(app: FastAPI, db: Database) -> None:
                 ),
             )
             obs_where = and_(
-                *obs_conditions,
                 or_(
                     observations.c.ean.in_(select(cand_eans_cte.c.ean)),
-                    obs_key.in_(select(cand_art_keys_cte.c.item_key)),
+                    and_(
+                        or_(observations.c.ean.is_(None), observations.c.ean == ""),
+                        obs_key.in_(select(cand_art_keys_cte.c.item_key)),
+                    ),
                 ),
+                *obs_conditions,
             )
             if not resolved_retailer:
                 is_restricted_prod = _is_restricted_ean_expr(products.c.ean)
@@ -689,7 +692,33 @@ def register_comparison_routes(app: FastAPI, db: Database) -> None:
                 .where(*native_conditions)
                 .cte("native_selected_lookup")
             )
-            obs_keyed = select(*obs_keyed_select).where(*obs_conditions).cte("obs_selected_lookup")
+            selected_eans = {row["ean"] for row in page_rows if row["ean"]}
+            selected_obs_ids = [key[4:] for key in selected_page_keys if key.startswith("obs:")]
+            selected_article_ids = [
+                key.split(":", 2)[2] for key in selected_page_keys if key.startswith("article:")
+            ]
+            # Use indexed identifiers before deriving JSON-backed display keys.
+            # The final item_key check below still enforces retailer/RCN identity.
+            obs_identity_filters = []
+            if selected_eans:
+                obs_identity_filters.append(observations.c.ean.in_(selected_eans))
+            if selected_obs_ids:
+                obs_identity_filters.append(observations.c.id.in_(selected_obs_ids))
+            if selected_article_ids:
+                obs_identity_filters.append(
+                    and_(
+                        or_(observations.c.ean.is_(None), observations.c.ean == ""),
+                        obs_source_product_id.in_(selected_article_ids),
+                    )
+                )
+            obs_keyed = (
+                select(*obs_keyed_select)
+                .where(
+                    or_(*obs_identity_filters) if obs_identity_filters else literal(False),
+                    *obs_conditions,
+                )
+                .cte("obs_selected_lookup")
+            )
 
             native_price_rows = (
                 conn.execute(
@@ -990,7 +1019,12 @@ def register_comparison_routes(app: FastAPI, db: Database) -> None:
                     for price in cleaned_prices
                     if (price.get("price_date") or "") == latest_dates[snapshot_context(price)]
                 ]
-            item["prices"] = cleaned_prices
+            # Repeated same-day imports can differ only in capture timestamp.
+            # Collapse identical displayed evidence, retaining differing prices,
+            # dates, channels, membership conditions and sources.
+            item["prices"] = list(
+                {json.dumps(price, sort_keys=True): price for price in cleaned_prices}.values()
+            )
             item["prices"].sort(key=lambda p: (p["price_cents"], p["retailer"]))
             page_items.append(item)
 

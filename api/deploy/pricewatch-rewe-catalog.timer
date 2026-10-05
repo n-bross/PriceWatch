@@ -1,0 +1,11 @@
+[Unit]
+Description=Continue REWE catalogue every fifteen minutes; refresh finished cycles daily
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=15min
+RandomizedDelaySec=30
+Unit=pricewatch-rewe-catalog.service
+
+[Install]
+WantedBy=timers.target

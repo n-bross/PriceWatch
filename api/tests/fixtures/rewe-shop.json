@@ -1,0 +1,494 @@
+{
+  "type": "SEARCH_RESULT",
+  "search": {
+    "term": "*",
+    "sorting": "RELEVANCE_DESC",
+    "autoCorrect": {
+      "originalSearchTerm": "*"
+    },
+    "marketCode": "461766",
+    "serviceTypes": [
+      "PICKUP"
+    ],
+    "selectedFacets": {
+      "attribute": [
+        "discounted"
+      ]
+    },
+    "locale": "de-DE",
+    "debugMode": false
+  },
+  "pagination": {
+    "page": 1,
+    "totalPages": 15,
+    "objectsPerPage": 40,
+    "totalResultCount": 595
+  },
+  "_embedded": {
+    "products": [
+      {
+        "id": "8296975",
+        "nan": "8296975",
+        "version": 43,
+        "productName": "REWE Bio Karotten ca. 100g",
+        "attributes": {
+          "tags": {
+            "discounted": {
+              "label": "Angebote"
+            },
+            "organic": {
+              "label": "Bio"
+            }
+          }
+        },
+        "brand": {
+          "name": "REWE Bio"
+        },
+        "media": {
+          "images": [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://img.rewe-static.de/8296975/29337726_digital-image.png"
+                }
+              }
+            }
+          ]
+        },
+        "_embedded": {
+          "articles": [
+            {
+              "id": "OJDEB5P7",
+              "version": 56,
+              "gtin": "28003199",
+              "_embedded": {
+                "listing": {
+                  "id": "8-OJDEB5P7-8652ef95-6cd3-3889-a7f0-4cb1ae442310",
+                  "version": 1200160,
+                  "pricing": {
+                    "currentRetailPrice": 17,
+                    "currency": "EUR",
+                    "basePrice": 169,
+                    "baseUnit": {
+                      "KG": 1
+                    },
+                    "discount": {
+                      "regularPrice": 25,
+                      "discountRate": 32.0,
+                      "validTo": "2026-10-10T00:00:00CEST"
+                    },
+                    "grammage": "1 Stück ca. 100 g (1 kg = 1,69 €)"
+                  },
+                  "limitations": {
+                    "orderLimit": 15
+                  }
+                },
+                "store": {
+                  "id": "8652ef95-6cd3-3889-a7f0-4cb1ae442310",
+                  "version": 1000165
+                },
+                "merchant": {
+                  "id": "rewe-online-services",
+                  "version": 55048,
+                  "name": "REWE",
+                  "type": "REWE",
+                  "logo": "https://a.rewe-static.de/partnerlogos/rewe/REWE_mp.png"
+                }
+              }
+            }
+          ],
+          "categories": [
+            {
+              "id": "1",
+              "primary": false
+            },
+            {
+              "id": "2",
+              "primary": false
+            },
+            {
+              "id": "31",
+              "primary": false
+            },
+            {
+              "id": "2491",
+              "primary": true
+            }
+          ],
+          "categoryPath": "Obst & Gemüse/Frisches Gemüse/Wurzelgemüse/Möhren/"
+        },
+        "hasVariants": false,
+        "hasDiverseVariantPrices": false,
+        "shouldDetailsLinkBeMasked": false,
+        "freeShipping": false,
+        "_links": {
+          "detail": {
+            "href": "/p/rewe-bio-karotten-ca-100g/8296975"
+          }
+        },
+        "boostings": [
+          {
+            "source": "PRODUCT_TOPSELLER",
+            "field": "productTopseller",
+            "values": [],
+            "boost": 1.0
+          },
+          {
+            "source": "LISTING_TOPSELLER",
+            "field": "listingTopseller",
+            "values": [],
+            "boost": 1.0
+          }
+        ]
+      },
+      {
+        "id": "3402061",
+        "nan": "3402061",
+        "version": 176,
+        "productName": "REWE Bio Mango 1 Stück",
+        "attributes": {
+          "tags": {
+            "discounted": {
+              "label": "Angebote"
+            },
+            "organic": {
+              "label": "Bio"
+            }
+          }
+        },
+        "brand": {
+          "name": "REWE Bio"
+        },
+        "media": {
+          "images": [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://img.rewe-static.de/3402061/8127010_digital-image.png"
+                }
+              }
+            }
+          ]
+        },
+        "_embedded": {
+          "articles": [
+            {
+              "id": "4388840026746",
+              "version": 165144,
+              "gtin": "4388840026746",
+              "_embedded": {
+                "listing": {
+                  "id": "13-4388840026746-8652ef95-6cd3-3889-a7f0-4cb1ae442310",
+                  "version": 1200231,
+                  "pricing": {
+                    "currentRetailPrice": 199,
+                    "currency": "EUR",
+                    "discount": {
+                      "regularPrice": 299,
+                      "discountRate": 33.0,
+                      "validTo": "2026-10-05T00:00:00CEST"
+                    },
+                    "grammage": "1 Stück"
+                  },
+                  "limitations": {
+                    "orderLimit": 15
+                  }
+                },
+                "store": {
+                  "id": "8652ef95-6cd3-3889-a7f0-4cb1ae442310",
+                  "version": 1000165
+                },
+                "merchant": {
+                  "id": "rewe-online-services",
+                  "version": 55048,
+                  "name": "REWE",
+                  "type": "REWE",
+                  "logo": "https://a.rewe-static.de/partnerlogos/rewe/REWE_mp.png"
+                }
+              }
+            }
+          ],
+          "categories": [
+            {
+              "id": "1",
+              "primary": false
+            },
+            {
+              "id": "3862",
+              "primary": false
+            },
+            {
+              "id": "3844",
+              "primary": false
+            },
+            {
+              "id": "51",
+              "primary": false
+            },
+            {
+              "id": "3914",
+              "primary": false
+            },
+            {
+              "id": "3791",
+              "primary": false
+            },
+            {
+              "id": "2507",
+              "primary": false
+            },
+            {
+              "id": "3923",
+              "primary": false
+            },
+            {
+              "id": "3793",
+              "primary": true
+            }
+          ],
+          "categoryPath": "Obst & Gemüse/Frisches Obst/Mango/"
+        },
+        "hasVariants": false,
+        "hasDiverseVariantPrices": false,
+        "shouldDetailsLinkBeMasked": false,
+        "freeShipping": false,
+        "_links": {
+          "detail": {
+            "href": "/p/rewe-bio-mango-1-stueck/3402061"
+          }
+        },
+        "boostings": [
+          {
+            "source": "PRODUCT_TOPSELLER",
+            "field": "productTopseller",
+            "values": [],
+            "boost": 1.0
+          },
+          {
+            "source": "LISTING_TOPSELLER",
+            "field": "listingTopseller",
+            "values": [],
+            "boost": 1.0
+          }
+        ]
+      },
+      {
+        "id": "25267",
+        "nan": "25267",
+        "version": 67,
+        "productName": "Mango essreif 1 Stück",
+        "attributes": {
+          "tags": {
+            "discounted": {
+              "label": "Angebote"
+            }
+          }
+        },
+        "brand": {},
+        "media": {
+          "images": [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://img.rewe-static.de/0025267/24569609_digital-image.png"
+                }
+              }
+            }
+          ]
+        },
+        "_embedded": {
+          "articles": [
+            {
+              "id": "8717428061460",
+              "version": 254080,
+              "gtin": "8717428061460",
+              "_embedded": {
+                "listing": {
+                  "id": "13-8717428061460-8652ef95-6cd3-3889-a7f0-4cb1ae442310",
+                  "version": 1200168,
+                  "pricing": {
+                    "currentRetailPrice": 222,
+                    "currency": "EUR",
+                    "discount": {
+                      "regularPrice": 299,
+                      "discountRate": 25.0,
+                      "validTo": "2026-10-10T00:00:00CEST"
+                    },
+                    "grammage": "1 Stück"
+                  },
+                  "limitations": {
+                    "orderLimit": 15
+                  }
+                },
+                "store": {
+                  "id": "8652ef95-6cd3-3889-a7f0-4cb1ae442310",
+                  "version": 1000165
+                },
+                "merchant": {
+                  "id": "rewe-online-services",
+                  "version": 55048,
+                  "name": "REWE",
+                  "type": "REWE",
+                  "logo": "https://a.rewe-static.de/partnerlogos/rewe/REWE_mp.png"
+                }
+              }
+            }
+          ],
+          "categories": [
+            {
+              "id": "1",
+              "primary": false
+            },
+            {
+              "id": "51",
+              "primary": false
+            },
+            {
+              "id": "2507",
+              "primary": true
+            }
+          ],
+          "categoryPath": "Obst & Gemüse/Frisches Obst/Mango/"
+        },
+        "hasVariants": false,
+        "hasDiverseVariantPrices": false,
+        "shouldDetailsLinkBeMasked": false,
+        "freeShipping": false,
+        "_links": {
+          "detail": {
+            "href": "/p/mango-essreif-1-stueck/25267"
+          }
+        },
+        "boostings": [
+          {
+            "source": "PRODUCT_TOPSELLER",
+            "field": "productTopseller",
+            "values": [],
+            "boost": 1.0
+          },
+          {
+            "source": "LISTING_TOPSELLER",
+            "field": "listingTopseller",
+            "values": [],
+            "boost": 1.0
+          }
+        ]
+      },
+      {
+        "id": "4203860",
+        "nan": "4203860",
+        "version": 101,
+        "productName": "Bonduelle Goldmais 285g",
+        "attributes": {
+          "tags": {
+            "discounted": {
+              "label": "Angebote"
+            },
+            "hasLoyaltyBonus": {
+              "label": "Bonus-Aktionen"
+            }
+          }
+        },
+        "brand": {
+          "name": "Bonduelle"
+        },
+        "media": {
+          "images": [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://img.rewe-static.de/4203860/23927977_digital-image.png"
+                }
+              }
+            }
+          ]
+        },
+        "_embedded": {
+          "articles": [
+            {
+              "id": "3083681102499",
+              "version": 114057,
+              "gtin": "3083681102499",
+              "_embedded": {
+                "listing": {
+                  "id": "13-3083681102499-8652ef95-6cd3-3889-a7f0-4cb1ae442310",
+                  "version": 1200105,
+                  "pricing": {
+                    "currentRetailPrice": 111,
+                    "currency": "EUR",
+                    "basePrice": 389,
+                    "baseUnit": {
+                      "KG": 1
+                    },
+                    "discount": {
+                      "regularPrice": 179,
+                      "discountRate": 37.0,
+                      "validTo": "2026-10-10T00:00:00CEST"
+                    },
+                    "grammage": "285g (1 kg = 3,89 €)"
+                  },
+                  "limitations": {
+                    "orderLimit": 15
+                  }
+                },
+                "store": {
+                  "id": "8652ef95-6cd3-3889-a7f0-4cb1ae442310",
+                  "version": 1000165
+                },
+                "merchant": {
+                  "id": "rewe-online-services",
+                  "version": 55048,
+                  "name": "REWE",
+                  "type": "REWE",
+                  "logo": "https://a.rewe-static.de/partnerlogos/rewe/REWE_mp.png"
+                }
+              }
+            }
+          ],
+          "categories": [
+            {
+              "id": "3738",
+              "primary": false
+            },
+            {
+              "id": "459",
+              "primary": false
+            },
+            {
+              "id": "468",
+              "primary": true
+            }
+          ],
+          "categoryPath": "Fertiggerichte & Konserven/Gemüsekonserven/Mais-Konserven/"
+        },
+        "hasVariants": false,
+        "hasDiverseVariantPrices": false,
+        "shouldDetailsLinkBeMasked": false,
+        "freeShipping": false,
+        "_links": {
+          "detail": {
+            "href": "/p/bonduelle-goldmais-285g/4203860"
+          }
+        },
+        "loyaltyBonus": {
+          "bonusType": "CENT",
+          "bonusValue": 15
+        },
+        "boostings": [
+          {
+            "source": "PRODUCT_TOPSELLER",
+            "field": "productTopseller",
+            "values": [],
+            "boost": 1.0
+          },
+          {
+            "source": "LISTING_TOPSELLER",
+            "field": "listingTopseller",
+            "values": [],
+            "boost": 1.0
+          }
+        ]
+      }
+    ]
+  }
+}

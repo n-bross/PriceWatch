@@ -729,3 +729,72 @@ def test_latest_recent_snapshot_keeps_store_channel_and_card_context(client):
     assert [p["price_cents"] for p in data["items"][0]["prices"]] == [200, 300, 400, 500]
     data = api.get("/v1/compare", params={**params, "include_history": True}).json()
     assert len(data["items"][0]["prices"]) == 5
+
+
+def test_repeated_capture_collapses_only_identical_displayed_price(client):
+    api, db = client
+    from zoneinfo import ZoneInfo
+
+    from pricewatch_api.observations import ObservationRepository
+
+    base = {
+        "source": "rewe_shop_pickup",
+        "retailer": "REWE",
+        "name": "Duplicate fixture",
+        "ean": "4008400401829",
+        "price_cents": 199,
+        "scope": "store_channel",
+        "channel": "pickup",
+        "store_id": "461766",
+        "postal_code": "85567",
+        "price_date": datetime.now(ZoneInfo("Europe/Berlin")).date().isoformat(),
+    }
+    ObservationRepository(db).save(
+        [
+            {**base, "captured_at": "first"},
+            {**base, "captured_at": "second"},
+            {**base, "price_cents": 229},
+            {**base, "channel": "delivery"},
+        ]
+    )
+    result = api.get("/v1/compare", params={"ean": base["ean"]}).json()["items"][0]["prices"]
+    assert len(result) == 3
+    assert sorted(p["price_cents"] for p in result) == [199, 199, 229]
+    assert {p["channel"] for p in result} == {"pickup", "delivery"}
+
+
+def test_selected_ean_detail_lookup_uses_ean_index(client):
+    api, db = client
+    from sqlalchemy import event
+
+    from pricewatch_api.observations import ObservationRepository
+
+    ObservationRepository(db).save(
+        [
+            {
+                "source": "fixture",
+                "retailer": "REWE",
+                "name": "Indexed fixture",
+                "ean": "4008400401829",
+                "price_cents": 199,
+                "price_date": date.today().isoformat(),
+            }
+        ]
+    )
+    statements = []
+
+    def capture(conn, cursor, statement, parameters, context, many):
+        if "obs_selected_lookup" in statement:
+            statements.append((statement, parameters))
+
+    event.listen(db.engine, "before_cursor_execute", capture)
+    try:
+        assert api.get("/v1/compare", params={"ean": "4008400401829"}).status_code == 200
+    finally:
+        event.remove(db.engine, "before_cursor_execute", capture)
+    assert len(statements) == 1
+    with db.engine.connect() as conn:
+        plan = conn.exec_driver_sql(
+            "EXPLAIN QUERY PLAN " + statements[0][0], statements[0][1]
+        ).all()
+    assert any("external_prices_ean_date" in row[3] for row in plan)

@@ -1,0 +1,11 @@
+[Unit]
+Description=Check REWE pickup import every fifteen minutes (six-hour source cooldown)
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=15min
+RandomizedDelaySec=30
+Unit=pricewatch-rewe.service
+
+[Install]
+WantedBy=timers.target

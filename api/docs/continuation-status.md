@@ -1,5 +1,45 @@
 # PriceWatch Continuation Status & Integration Reality Audit
 
+## Produktives Update vom 04.10.2026
+
+Der REWE-Sortimentsimport ist inzwischen **aktiviert und produktiv ausgeführt**:
+14.702 unterschiedliche Abholartikel aus 16 Kategorien / 381 Seiten für
+Markt 461766, PLZ 85567. Der regelmäßige Importdienst, die API-Fortschrittsanzeige
+und der Browservergleich sind aktualisiert. Ein nativer iOS-Tab „Preise“ ist im
+Code ergänzt; sein Xcode-Build bleibt auf einem Mac zu prüfen.
+
+Details, Importdifferenzen und Prüfgrenzen:
+[Produktive Preiserweiterung](price-expansion-2026-10-04.md).
+Die folgenden Abschnitte sind ältere Zwischenstände; insbesondere die Aussage
+„REWE-Dienst nicht aktiviert“ ist durch dieses Update überholt.
+
+## Ergänzung vom 04.10.2026: Validierung und REWE-Importer
+
+Der untenstehende Betriebsbericht beschreibt den damaligen Stand im ursprünglichen
+Worktree; seine Deployment-Angaben wurden für diese Ergänzung nicht erneut geprüft.
+
+- `pricewatch_api.rewe_recurring` implementiert den damals noch fehlenden
+  regelmäßigen REWE-Shop-Abruf. Live-Test am 04.10.2026 um 16:52 UTC:
+  **595 Abholpreis-Beobachtungen aus 15 Seiten** für Markt 461766, PLZ 85567,
+  erfolgreich in eine separate SQLite-Testdatenbank importiert.
+- 14 neue Regressionstests prüfen Markt-/Kanalbestätigung, Pagination,
+  Preis-/Barcodevalidierung, Bonusbehandlung, Abruffehler und Cooldown.
+- Dienst- und Timer-Vorlagen sowie [Betriebsanleitung](rewe-recurring.md) liegen vor.
+  **Der neue REWE-Dienst wurde nicht auf dem Produktivhost aktiviert.**
+- GitHub-Actions-Konfiguration prüft Python, Ruff, JavaScript und den zuvor optionalen
+  PostgreSQL-/RLS-Test mit einer frischen PostgreSQL-16-Datenbank und Migrationen
+  0004–0009. Die Workflow-Datei muss veröffentlicht werden, bevor GitHub sie ausführt.
+- Lokale Abschlussprüfung: **282 Python-Tests einschließlich PostgreSQL erfolgreich**,
+  **5 JavaScript-Tests erfolgreich**, Ruff ohne Befund. Systemd-Vorlagen mit
+  `systemd-analyze verify` geprüft. Die Testausführung verwendete Python 3.13;
+  der CI-Job ist für die minimale unterstützte Python-Version 3.12 konfiguriert.
+  Eine bestehende Starlette/httpx-Deprecation-Warnung bleibt bestehen.
+- Noch offen: Veröffentlichung/Review der Änderungen und PR-Merge, REWE-Deployment
+  mit bestätigter Marktkonfiguration, EDEKA-Erreichbarkeit, iOS-Abnahme auf einem Mac,
+  synchronisierte Web-Einkaufslisten und vollständige Vision-/OCR-Preisextraktion.
+
+---
+
 **Status Stand:** 2026-10-04 16:20 CEST (Europe/Berlin)  
 **Parent Thread:** `383b6f67-0b5f-419e-9ff1-44530b8f0362`  
 **Workspace:** `/opt/t3code/worktrees/PriceWatch/t3code-e70d379d` (Branch: `t3code/supermarket-price-offers-api`)

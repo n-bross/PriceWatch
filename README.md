@@ -5,6 +5,7 @@ iOS-Einkaufslisten-App mit Supabase und einer API für Supermarktpreise/Angebote
 - [Preis-API: Start, Endpunkte und Datenabdeckung](api/README.md)
 - [Händlerprüfung: Ergebnisse und Abrufprobleme pro Supermarkt](docs/retailer-coverage.md)
 - [iOS-/Supabase-Setup](SETUP.md)
+- [Produktive Preiserweiterung und iOS-Preisvergleich](api/docs/price-expansion-2026-10-04.md)
 
 Die Vergleichswebsite liegt unter `/` und `/compare`. Suche nach Produktname oder EAN,
 PLZ- und Händlerfilter sowie getrennte Anzeige historischer und App-Preise sind verfügbar.

@@ -38,6 +38,9 @@ struct MainTabView: View {
             OffersView()
                 .tabItem { Label("Angebote", systemImage: "percent") }
 
+            PriceComparisonView()
+                .tabItem { Label("Preise", systemImage: "magnifyingglass") }
+
             SettingsView(session: session)
                 .tabItem { Label("Einstellungen", systemImage: "gearshape") }
         }
@@ -47,6 +50,7 @@ struct MainTabView: View {
 struct SettingsView: View {
     let session: Session
     @State private var isSigningOut = false
+    @AppStorage("priceAPIURL") private var priceServer = PriceComparisonAPI.defaultURL
 
     private var accountLabel: String {
         session.user.email ?? "Gast (anonym)"
@@ -71,6 +75,16 @@ struct SettingsView: View {
                             Text("Abmelden")
                         }
                     }
+                }
+
+                Section("Preisvergleich") {
+                    TextField("HTTPS-Serveradresse", text: $priceServer)
+                        .keyboardType(.URL)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+                    Button("Standardserver verwenden") { priceServer = PriceComparisonAPI.defaultURL }
+                } footer: {
+                    Text("Der Tab Preise nutzt denselben Datenbestand wie der Browser. Für den voreingestellten Server ist eine Tailscale-Verbindung erforderlich.")
                 }
 
                 Section {

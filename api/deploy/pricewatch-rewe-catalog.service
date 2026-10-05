@@ -1,0 +1,18 @@
+[Unit]
+Description=Resume REWE pickup catalogue imports
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=@DATA_API_DIR@
+EnvironmentFile=@DATA_API_DIR@/.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=@API_DIR@
+Environment=REWE_MARKET_ID=461766
+Environment=REWE_POSTAL_CODE=85567
+ExecStart=@API_DIR@/.venv/bin/python -P -m pricewatch_api.rewe_catalog --market-id ${REWE_MARKET_ID} --postal-code ${REWE_POSTAL_CODE} --max-pages 40
+TimeoutStartSec=1800
+Nice=10
+UMask=0077
+

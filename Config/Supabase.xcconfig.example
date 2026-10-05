@@ -6,3 +6,5 @@
 // in the URL must be escaped for xcconfig's parser.
 SUPABASE_URL = https:/$()/your-project-ref.supabase.co
 SUPABASE_ANON_KEY = your-anon-key-here
+// Same read-only price service as the comparison website. Requires Tailscale.
+PRICEWATCH_API_URL = https:/$()/vps.tail179a46.ts.net:9450

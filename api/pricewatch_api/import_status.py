@@ -26,6 +26,7 @@ JOBS = (
     ("edeka", "EDEKA Direktabruf", ("edeka_public_offers",), "edeka-offers/status.json", "single"),
     ("rossmann", "ROSSMANN", ("rossmann_browser",), "rossmann-recurring/state.json", "single"),
     ("rewe", "REWE Browserimport", ("rewe_browser",), None, "manual"),
+    ("rewe_shop", "REWE Abholsortiment", ("rewe_shop_pickup",), None, "rewe_catalog"),
     ("edeka_browser", "EDEKA Browserimport", ("edeka_browser",), None, "manual"),
 )
 
@@ -77,6 +78,24 @@ def summarize(path, kind, now):
             )
             result["cycle_completed_at"] = utc_timestamp(state.get("listing_completed_at"))
             retry = state.get("cooldown_until") or 0
+        elif kind == "rewe_catalog":
+            status = state.get("status", "unknown")
+            if not isinstance(state.get("pages_completed", 0), int):
+                raise ValueError("Invalid REWE page count")
+            result.update(
+                status=status
+                if status in {"in_progress", "completed", "failed", "cooldown"}
+                else "unknown",
+                pages_completed=state.get("pages_completed", 0),
+                cycle_products=len(state.get("article_ids", [])),
+                categories_total=len(state.get("categories", [])),
+                categories_completed=len(state.get("completed_categories", [])),
+            )
+            retry = (
+                datetime.fromisoformat(state["next_due"]).timestamp()
+                if state.get("next_due")
+                else 0
+            )
         elif kind == "recovered":
             if not isinstance(state, list):
                 raise ValueError("Invalid recovered-source checkpoint")
@@ -139,13 +158,46 @@ def import_status(db, data_dir, now=None):
             for s in sources
             if s in stats and stats[s]["latest_price_date"]
         ]
+        evidence = summarize(Path(data_dir) / relative if relative else None, kind, now)
+        if kind == "rewe_catalog":
+            checkpoints = sorted(Path(data_dir).glob("rewe-shop/*/catalog.json"))
+            summaries = [summarize(path, kind, now) for path in checkpoints]
+            if summaries:
+                statuses = {s["status"] for s in summaries}
+                evidence = {
+                    "markets": len(summaries),
+                    "status": next(
+                        (
+                            s
+                            for s in [
+                                "failed",
+                                "unreadable",
+                                "in_progress",
+                                "cooldown",
+                                "unknown",
+                                "completed",
+                            ]
+                            if s in statuses
+                        ),
+                        "unknown",
+                    ),
+                    **{
+                        key: sum(s.get(key, 0) for s in summaries)
+                        for key in [
+                            "pages_completed",
+                            "cycle_products",
+                            "categories_total",
+                            "categories_completed",
+                        ]
+                    },
+                }
         items.append(
             {
                 "id": identifier,
                 "name": name,
                 "observations": sum(stats.get(s, {}).get("observations", 0) for s in sources),
                 "latest_price_date": max(dates) if dates else None,
-                **summarize(Path(data_dir) / relative if relative else None, kind, now),
+                **evidence,
             }
         )
     return {

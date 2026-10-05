@@ -80,3 +80,30 @@ def test_status_aggregation_uses_covering_index_on_existing_database(tmp_path):
             )
         ).all()
     assert any("COVERING INDEX external_prices_source_date" in row[-1] for row in plan)
+
+
+def test_rewe_catalog_progress_is_visible_without_exposing_raw_checkpoint(tmp_path):
+    db = Database("sqlite:///:memory:")
+    db.initialize()
+    path = tmp_path / "rewe-shop/461766-85567/catalog.json"
+    path.parent.mkdir(parents=True)
+    path.write_text(
+        json.dumps(
+            {
+                "status": "in_progress",
+                "article_ids": ["a", "b"],
+                "pages_completed": 2,
+                "categories": ["food", "drinks"],
+                "completed_categories": ["food"],
+                "reason": "PRIVATE",
+                "pending": [{"private": "URL"}],
+            }
+        )
+    )
+    result = import_status(db, tmp_path)
+    item = next(x for x in result["items"] if x["id"] == "rewe_shop")
+    assert item["cycle_products"] == 2
+    assert item["categories_completed"] == 1
+    assert item["status"] == "in_progress"
+    assert "PRIVATE" not in json.dumps(result)
+    assert "pending" not in item

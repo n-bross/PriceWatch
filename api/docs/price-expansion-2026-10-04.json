@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-10-04T21:34:29.413480+00:00",
+  "before_at": "2026-10-04T18:05:31.682239+00:00",
+  "sources": [
+    {
+      "source": "rewe_shop_pickup",
+      "articles_before": 0,
+      "articles_after": 14702,
+      "additional_observations": 15297
+    },
+    {
+      "source": "dm_website",
+      "articles_before": 9397,
+      "articles_after": 9732,
+      "additional_observations": 336
+    },
+    {
+      "source": "marktguru",
+      "articles_before": 0,
+      "articles_after": 0,
+      "additional_observations": 460
+    }
+  ],
+  "rewe_market_id": "461766",
+  "postal_code": "85567",
+  "rewe_categories": 16,
+  "rewe_pages": 381,
+  "api_release": "/opt/pricewatch/releases/20261004-rewe-catalog",
+  "timer": "pricewatch-rewe-catalog.timer",
+  "ios_build_verified": false
+}
