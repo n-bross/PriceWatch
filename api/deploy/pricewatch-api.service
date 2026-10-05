@@ -1,0 +1,15 @@
+[Unit]
+Description=PriceWatch price and offer API
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=@API_DIR@
+EnvironmentFile=@API_DIR@/.env
+ExecStart=@API_DIR@/.venv/bin/uvicorn pricewatch_api.main:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=3
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

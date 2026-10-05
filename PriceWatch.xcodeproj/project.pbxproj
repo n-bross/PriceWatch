@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCD0000000000000000000DD /* PriceComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF1000000000000000000CF /* PriceComparisonView.swift */; };
 		6B20DE432B877DE9004941A3 /* PriceWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B20DE422B877DE9004941A3 /* PriceWatchApp.swift */; };
 		6B20DE452B877DE9004941A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B20DE442B877DE9004941A3 /* ContentView.swift */; };
 		6B20DE472B877DE9004941A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B20DE462B877DE9004941A3 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BBF1000000000000000000CF /* PriceComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceComparisonView.swift; sourceTree = "<group>"; };
 		6B20DE3F2B877DE9004941A3 /* PriceWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PriceWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B20DE422B877DE9004941A3 /* PriceWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceWatchApp.swift; sourceTree = "<group>"; };
 		6B20DE442B877DE9004941A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		AA7000000000000000000C00 /* Offers */ = {
 			isa = PBXGroup;
 			children = (
+				BBF1000000000000000000CF /* PriceComparisonView.swift */,
 				BBF0000000000000000000CF /* OffersView.swift */,
 			);
 			path = Offers;
@@ -379,6 +382,7 @@
 				CCA0000000000000000000DA /* Theme.swift in Sources */,
 				CCB0000000000000000000DB /* Offer.swift in Sources */,
 				CCC0000000000000000000DC /* OffersView.swift in Sources */,
+				CCD0000000000000000000DD /* PriceComparisonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

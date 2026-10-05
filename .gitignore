@@ -33,3 +33,20 @@ worker/.env*
 
 # Supabase local dev
 supabase/.temp/
+
+# Price API
+api/.venv/
+api/.env*
+!api/.env.example
+api/*.db
+api/*.db-*
+api/*.egg-info/
+api/data/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+
+api/tests/browser/node_modules/
+
+# Local Gemini credentials
+.gemini.env

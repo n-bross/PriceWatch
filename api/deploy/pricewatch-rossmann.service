@@ -1,0 +1,14 @@
+[Unit]
+Description=Capture fresh public ROSSMANN online prices in bounded browser batches
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=@API_DIR@
+EnvironmentFile=@API_DIR@/.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=@API_DIR@/.venv/bin/python scripts/sync_rossmann.py --max-pages 5
+TimeoutStartSec=840
+Nice=10
+UMask=0077

@@ -1,0 +1,11 @@
+[Unit]
+Description=PriceWatch source tracker every 15 minutes
+
+[Timer]
+OnCalendar=*:0/15
+Persistent=true
+RandomizedDelaySec=30
+Unit=pricewatch-sync-e70d379d.service
+
+[Install]
+WantedBy=timers.target

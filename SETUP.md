@@ -7,8 +7,8 @@ Browser-Login und müssen manuell gemacht werden.
 ## Was Phase 0 ist
 
 Einkaufslisten-App (AnyList-Stil) mit Supabase-Backend: E-Mail-OTP-Login, Listen +
-Items mit Realtime-Sync zwischen Geräten. Angebots-Features (Supermarkt-Prospekte)
-folgen in späteren Phasen — siehe Roadmap unten.
+Items mit Realtime-Sync zwischen Geräten. Dieses Dokument beschreibt das ursprüngliche
+iOS-Setup; den inzwischen erweiterten Funktionsumfang nennt der Implementierungsstand unten.
 
 ## Schritte
 
@@ -63,10 +63,10 @@ xcodebuild -project PriceWatch.xcodeproj -scheme PriceWatch \
   -destination 'platform=iOS Simulator,name=iPhone 15' build
 ```
 
-Build-Fehler sind hier erwartbar (der Swift-Code wurde auf einem Linux-Server ohne
-Xcode geschrieben und noch nie kompiliert) — insbesondere können sich die
-supabase-swift-APIs (Realtime `postgresChange`, `signInWithOTP`, `AnyJSON`) je nach
-SDK-Version leicht unterscheiden. Fehler direkt fixen.
+Der aktuelle iOS-Build muss auf einem Mac mit Xcode verifiziert werden; die
+Python-/JavaScript-CI prüft ihn nicht. Bei Build-Fehlern insbesondere die zur
+eingebundenen supabase-swift-Version passenden APIs prüfen (Realtime
+`postgresChange`, `signInWithOTP`, `AnyJSON`).
 
 **Fertig-Kriterium (manuell im Simulator durchspielen):**
 
@@ -76,10 +76,42 @@ SDK-Version leicht unterscheiden. Fehler direkt fixen.
 4. Zweiten Simulator mit demselben Account starten → Änderungen erscheinen live
    ohne Refresh (Realtime).
 
-## Roadmap (Kontext)
+## Implementierungsstand und nächste Schritte
 
-- **Phase 0 (dieses Setup):** iOS-Grundgerüst + Supabase-Sync ✓ Code geschrieben
-- **Phase 1:** Web-App (Next.js + supabase-js) gegen dasselbe Backend → `/web`
-- **Phase 2:** Angebots-Ingestion (Python-Worker, Marktguru-Quelle) + Browse-Screen → `/worker`
-- **Phase 3:** Fuzzy-Matching Listen-Items ↔ Angebote (pg_trgm), "im Angebot"-Badges
-- **Phase 4:** PDF-Prospekt-Pipeline mit Vision-LLM für nicht abgedeckte Händler
+### Gemeinsamer Preisvergleich auf iOS und im Browser
+
+Die iOS-App hat zusätzlich den Tab **Preise**, der dieselbe `/v1/compare`-API wie
+die Browseroberfläche abfragt. Produktname/EAN, PLZ und Mitgliedschaftsfilter
+stehen zur Verfügung. Herkunft, Datum, Abhol-/Online-/Filialkontext und
+Bonusguthaben werden getrennt angezeigt; Ergebnisse lassen sich seitenweise laden.
+
+Standardserver: `https://vps.tail179a46.ts.net:9450`. Auf dem iPhone muss Tailscale
+mit dem passenden Tailnet verbunden sein. Die Adresse lässt sich in den
+App-Einstellungen ändern oder beim Build über `PRICEWATCH_API_URL` in
+`Config/Supabase.xcconfig` vorbelegen. Für diese Leseabfragen wird kein
+Import- oder Datenbanktoken an die App gegeben.
+
+Die neuen REWE-Abholpreise erscheinen im Tab **Preise**. Die ältere Supabase-
+Angebotstabelle speist weiterhin den separaten Tab „Angebote“ und die bisherigen
+Angebotszuordnungen der Einkaufslisten.
+
+Für die neue iOS-Anbindung sind Decoder-/Anfragetests in `PriceWatchTests` ergänzt.
+Sie müssen mit Xcode auf macOS ausgeführt werden; auf dem Entwicklungsserver
+stehen kein SwiftUI-SDK und kein iOS-Simulator zur Verfügung.
+
+Die ursprüngliche Phasenplanung wurde teilweise durch die Preis-API ersetzt:
+
+- **iOS:** Listen, Anmeldung, Sync, Angebotsanzeige und erste Angebotszuordnung sind
+  implementiert. Die oben beschriebene Abnahme mit Xcode und zwei Geräten bleibt
+  separat nachzuweisen.
+- **Web:** Die Vergleichsoberfläche wird von der FastAPI-Anwendung ausgeliefert
+  (`/` und `/compare`). Eine synchronisierte Web-Einkaufsliste ist darin nicht enthalten.
+- **Importe:** Händleradapter, wiederkehrende Jobs, Produktkatalog und marktbezogener
+  REWE-Abholpreisimport liegen unter `/api`. Bereitstellung und aktuelle Erreichbarkeit
+  einer Quelle sind getrennt vom Implementierungsstand zu prüfen.
+- **Prospekte:** PDF-Download und Textsuche existieren. Eine vollständige Vision-/OCR-
+  Extraktion von Produktpreisen für bislang nicht abgedeckte Händler bleibt offen.
+
+Aktuelle Anleitungen: [Preis-API](api/README.md),
+[REWE-Import](api/docs/rewe-recurring.md) und
+[historischer Betriebsstand](api/docs/continuation-status.md).

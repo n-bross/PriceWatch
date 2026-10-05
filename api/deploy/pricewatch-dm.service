@@ -1,0 +1,13 @@
+[Unit]
+Description=Continue a bounded batch of dm online price requests
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=@API_DIR@
+EnvironmentFile=@API_DIR@/.env
+ExecStart=@API_DIR@/.venv/bin/python -m pricewatch_api.cli external-sync --external-source dm
+TimeoutStartSec=900
+Nice=10
+UMask=0077

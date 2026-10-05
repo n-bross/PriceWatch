@@ -1,0 +1,2110 @@
+{
+  "checked_at": "2026-10-02T22:07:21.348290+00:00",
+  "retailers": [
+    {
+      "id": "aldi_sued",
+      "name": "ALDI Süd",
+      "full_price_list_downloaded": false,
+      "price_status": "Teilpreise importiert",
+      "reason": "Ausgewählte Angebotskarten importiert. Der allgemeine HTTP-Abruf meldet 403 Access Denied; der vorhandene Händleradapter liefert Teilangebote.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.aldi-sued.de/angebote",
+          "final_url": "https://www.aldi-sued.de/angebote",
+          "http_status": 403,
+          "title": "Access Denied",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: Access Denied"
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.aldi-sued.de/prospekte",
+          "final_url": "https://www.aldi-sued.de/prospekte",
+          "http_status": 403,
+          "title": "Access Denied",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: Access Denied"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.aldi-sued.de/",
+          "final_url": "https://www.aldi-sued.de/",
+          "http_status": 403,
+          "title": "Access Denied",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: Access Denied"
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 417,
+          "latest_price_date": null,
+          "reason": "417 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 374,
+          "latest_price_date": "2026-08-31",
+          "reason": "374 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "aldi_nord",
+      "name": "ALDI Nord",
+      "full_price_list_downloaded": false,
+      "price_status": "Teilpreise importiert",
+      "reason": "Angebotskarten importiert; das Vollsortiment ist damit nicht erfasst.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.aldi-nord.de/angebote.html",
+          "final_url": "https://www.aldi-nord.de/angebote.html",
+          "http_status": 200,
+          "title": "Aktuelle Angebote von ALDI Nord zum ALDI Preis",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.aldi-nord.de/prospekte.html",
+          "final_url": "https://www.aldi-nord.de/prospekte.html",
+          "http_status": 200,
+          "title": "Alle ALDI Nord Prospekte online blättern",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.aldi-nord.de/",
+          "final_url": "https://www.aldi-nord.de/",
+          "http_status": 200,
+          "title": "ALDI Nord – Gutes für alle.",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 811,
+          "latest_price_date": "2026-09-12",
+          "reason": "811 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "alnatura",
+      "name": "Alnatura",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Offizielle Angebotsseite, alternative Markt-/Prospektseite und Startseite geprüft. Kein eindeutig lesbarer Product/Offer-EUR-Preisexport gefunden. Ein eigener Markt-/Prospektparser ist noch nicht umgesetzt; keine Vollpreisliste heruntergeladen.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.alnatura.de/maerkte/angebote-vorschau",
+          "final_url": "https://www.alnatura.de/angebote-vorschau",
+          "http_status": 200,
+          "title": "Alnatura",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.alnatura.de/de-de/angebote/",
+          "final_url": "https://www.alnatura.de/angebote",
+          "http_status": 200,
+          "title": "Alnatura",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.alnatura.de/",
+          "final_url": "https://www.alnatura.de/",
+          "http_status": 200,
+          "title": "Alnatura – Bio-Lebensmittel",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 15,
+          "latest_price_date": "2026-05-29",
+          "reason": "15 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "bio_company",
+      "name": "Bio Company",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Aktuelle Angebotsseite unter /neuigkeiten/angebote.html erreichbar; ältere Pfade liefern 404. Kein JSON-LD-Preisexport gefunden; eigener Angebotsparser noch nicht umgesetzt.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.biocompany.de/angebote/",
+          "final_url": "https://www.biocompany.de/angebote/",
+          "http_status": 404,
+          "title": "Error 404 PAGE NOT FOUND - BIO COMPANY SE",
+          "structured_prices": 0,
+          "reason": "HTTP 404; page marker: captcha"
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.biocompany.de/aktuelles/angebote/",
+          "final_url": "https://www.biocompany.de/aktuelles/angebote/",
+          "http_status": 404,
+          "title": "Error 404 PAGE NOT FOUND - BIO COMPANY SE",
+          "structured_prices": 0,
+          "reason": "HTTP 404; page marker: captcha"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.biocompany.de/",
+          "final_url": "https://www.biocompany.de/",
+          "http_status": 200,
+          "title": "Bio-Lebensmittel der Region - BIO COMPANY SE",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_offers_page",
+          "url": "https://www.biocompany.de/neuigkeiten/angebote.html",
+          "final_url": "https://www.biocompany.de/neuigkeiten/angebote.html",
+          "http_status": 200,
+          "title": "Angebote - BIO COMPANY SE",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.biocompany.de/angebote/",
+          "final_url": "https://www.biocompany.de/angebote/",
+          "http_status": 404,
+          "title": "Error 404 PAGE NOT FOUND - BIO COMPANY SE",
+          "structured_prices": 0,
+          "reason": "HTTP 404; page marker: captcha"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.biocompany.de/aktuelles/angebote/",
+          "final_url": "https://www.biocompany.de/aktuelles/angebote/",
+          "http_status": 404,
+          "title": "Error 404 PAGE NOT FOUND - BIO COMPANY SE",
+          "structured_prices": 0,
+          "reason": "HTTP 404; page marker: captcha"
+        },
+        {
+          "method": "additional_discovered_path",
+          "url": "https://www.biocompany.de/",
+          "final_url": "https://www.biocompany.de/",
+          "http_status": 200,
+          "title": "Bio-Lebensmittel der Region - BIO COMPANY SE",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "cap",
+      "name": "CAP-Markt",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Offizielle Angebotsseite, alternative Markt-/Prospektseite und Startseite geprüft. Kein eindeutig lesbarer Product/Offer-EUR-Preisexport gefunden. Ein eigener Markt-/Prospektparser ist noch nicht umgesetzt; keine Vollpreisliste heruntergeladen.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://cap-markt.de/angebote/",
+          "final_url": "https://cap-markt.de/angebote/",
+          "http_status": 404,
+          "title": "Error: 404 - CAP · Dein Supermarkt",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://cap-markt.de/maerkte/",
+          "final_url": "https://cap-markt.de/maerkte/",
+          "http_status": 200,
+          "title": "Unsere CAP-Märkte - CAP · Dein Supermarkt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://cap-markt.de/",
+          "final_url": "https://cap-markt.de/",
+          "http_status": 200,
+          "title": "Der Lebensmittelmarkt in Ihrer Nähe - CAP · Dein Supermarkt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 179,
+          "latest_price_date": "2026-09-04",
+          "reason": "179 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "combi",
+      "name": "Combi",
+      "full_price_list_downloaded": false,
+      "price_status": "Teilpreise importiert",
+      "reason": "Alle drei Seiten der Prospekt-Angebotsrubrik und 136 Produktdetailseiten importiert. Onlinepreise, keine zugesagten lokalen Regalpreise.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.combi.de/prospekt-angebote_220012750.html",
+          "final_url": "https://www.combi.de/prospekt-angebote_220012750.html",
+          "http_status": 200,
+          "title": "Prospekt-Angebote online bestellen bei combi.de",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.combi.de/aktuelles/unsere-angebote",
+          "final_url": "https://www.combi.de/aktuelles/unsere-angebote",
+          "http_status": 200,
+          "title": "Combi Angebote: Von Montag bis Sonntag!",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.combi.de/",
+          "final_url": "https://www.combi.de/",
+          "http_status": 200,
+          "title": "Einfach. Online. Einkaufen.",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 1,
+          "latest_price_date": "2024-05-22",
+          "reason": "1 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "denns",
+      "name": "Denns BioMarkt",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Öffentliche Angebots-/Marktseiten geprüft. Keine eindeutigen Product/Offer-EUR-Preise extrahiert; regionaler Prospekt-Parser noch erforderlich. Historische Belege vorhanden.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.biomarkt.de/angebote",
+          "final_url": "https://www.biomarkt.de/angebote",
+          "http_status": 200,
+          "title": "Bio-Angebote der Woche - jetzt frische Schnäppchen sichern | biomarkt.de",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.biomarkt.de/maerkte",
+          "final_url": "https://www.biomarkt.de/maerkte",
+          "http_status": 404,
+          "title": "BioMarkt | biomarkt.de",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.biomarkt.de/",
+          "final_url": "https://www.biomarkt.de/",
+          "http_status": 200,
+          "title": "Bio-Lebensmittel mit Herz | Unsere Werte und Überzeugungen | biomarkt.de",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 11,
+          "latest_price_date": "2026-05-21",
+          "reason": "11 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "diska",
+      "name": "diska",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Korrekte Prospektseite erreichbar; ältere Angebots-/Marktpfade liefern 404. Kein strukturierter Preisexport gefunden; Prospekt-Parser noch nicht umgesetzt.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.diska.de/angebote/",
+          "final_url": "https://diska.de/angebote/",
+          "http_status": 404,
+          "title": "Seite wurde nicht gefunden. - diska-markt",
+          "structured_prices": 0,
+          "reason": "HTTP 404; page marker: captcha"
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.diska.de/maerkte/",
+          "final_url": "https://diska.de/maerkte/",
+          "http_status": 404,
+          "title": "Seite wurde nicht gefunden. - diska-markt",
+          "structured_prices": 0,
+          "reason": "HTTP 404; page marker: captcha"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.diska.de/",
+          "final_url": "https://diska.de/",
+          "http_status": 200,
+          "title": "diska - alles an deinem ort.",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_offers_page",
+          "url": "https://diska.de/prospekt/",
+          "final_url": "https://diska.de/prospekt/",
+          "http_status": 200,
+          "title": "Aktuelle Angebote & Dein Prospekt zum Blättern - diska-markt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.diska.de/angebote/",
+          "final_url": "https://diska.de/angebote/",
+          "http_status": 404,
+          "title": "Seite wurde nicht gefunden. - diska-markt",
+          "structured_prices": 0,
+          "reason": "HTTP 404; page marker: captcha"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.diska.de/maerkte/",
+          "final_url": "https://diska.de/maerkte/",
+          "http_status": 404,
+          "title": "Seite wurde nicht gefunden. - diska-markt",
+          "structured_prices": 0,
+          "reason": "HTTP 404; page marker: captcha"
+        },
+        {
+          "method": "additional_discovered_path",
+          "url": "https://www.diska.de/",
+          "final_url": "https://diska.de/",
+          "http_status": 200,
+          "title": "diska - alles an deinem ort.",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "edeka",
+      "name": "EDEKA",
+      "full_price_list_downloaded": false,
+      "price_status": "Teilpreise importiert",
+      "reason": "19 öffentlich sichtbare Preisvarianten im Browser importiert, darunter App-Angebote. Filialverfügbarkeit nicht bestätigt; direkte HTTP-Seiten teilweise 403.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.edeka.de/angebote/",
+          "final_url": "https://www.edeka.de/angebote/",
+          "http_status": 403,
+          "title": "Access Denied",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: Access Denied"
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.edeka.de/regionen/suedbayern/angebote/",
+          "final_url": "https://www.edeka.de/regionen/suedbayern/angebote/",
+          "http_status": 403,
+          "title": "Access Denied",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: Access Denied"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.edeka-wochenangebote.de/",
+          "final_url": "https://www.edeka-wochenangebote.de/",
+          "http_status": 200,
+          "title": "EDEKA Wochenangebote",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 241,
+          "latest_price_date": null,
+          "reason": "241 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 2339,
+          "latest_price_date": "2026-10-01",
+          "reason": "2339 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "feneberg",
+      "name": "Feneberg",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Gefundener PDF-Download ist ein Speiseplan, keine Supermarkt-Preisliste. Historische Preisbelege vorhanden; aktuelle Angebotszuordnung noch nicht umgesetzt.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.feneberg.de/angebote/",
+          "final_url": "https://www.feneberg.de/angebote/",
+          "http_status": 200,
+          "title": "Angebote",
+          "structured_prices": 0,
+          "pdf_candidates": [
+            "https://www.feneberg.de/fileadmin/user_upload/Bilder_Angebote/Fene_Men%C3%BC/Fene-Men%C3%BCplan-Hochformat_KW40.pdf"
+          ],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.feneberg.de/maerkte/",
+          "final_url": "https://www.feneberg.de/maerkte/",
+          "http_status": 404,
+          "title": "404",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.feneberg.de/",
+          "final_url": "https://www.feneberg.de/",
+          "http_status": 200,
+          "title": "Feneberg Lebensmittel – Frisch. Regional. Nachhaltig.",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 55,
+          "latest_price_date": "2026-09-11",
+          "reason": "55 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": [
+        {
+          "url": "https://www.feneberg.de/fileadmin/user_upload/Bilder_Angebote/Fene_Men%C3%BC/Fene-Men%C3%BCplan-Hochformat_KW40.pdf",
+          "sha256": "0773cd8d34ee6bda0d37263d21434338bbcad5514cf2943cc4f11ea64f1b400c",
+          "bytes": 113396,
+          "pages": 3,
+          "price_mentions": 0,
+          "price_assignments_verified": false
+        }
+      ]
+    },
+    {
+      "id": "famila_nordost",
+      "name": "famila Nordost",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Öffentliche Angebots-/Marktseiten geprüft; kein eindeutiger strukturierter Preisexport übernommen. Generische famila-Belege bleiben ohne Zuordnung zur Teilkette.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.famila-nordost.de/angebote/",
+          "final_url": "https://www.famila-nordost.de/angebote-1/",
+          "http_status": 200,
+          "title": "Angebote 1 (4er) | famila Nordost",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.famila-nordost.de/maerkte/",
+          "final_url": "https://www.famila-nordost.de/maerkte/",
+          "http_status": 404,
+          "title": "Seite wurde nicht gefunden. | famila Nordost",
+          "structured_prices": 0,
+          "reason": "HTTP 404; page marker: captcha"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.famila-nordost.de/",
+          "final_url": "https://www.famila-nordost.de/",
+          "http_status": 200,
+          "title": "Startseite | famila Nordost",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "famila_nordwest",
+      "name": "famila Nordwest",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Korrekte Wochenangebotsseite erreichbar; alter /angebote/-Pfad liefert 404. Kein eindeutiger strukturierter Preisexport gefunden; eigener Parser noch nicht umgesetzt.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.famila-nordwest.de/angebote/",
+          "final_url": "https://www.famila-nordwest.de/angebote/",
+          "http_status": 404,
+          "title": "Seite nicht gefunden",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.famila-nordwest.de/aktuelles/",
+          "final_url": "https://www.famila-nordwest.de/aktuelles",
+          "http_status": 200,
+          "title": "Aktuelles bei famila: Bleiben Sie informiert!",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.famila-nordwest.de/",
+          "final_url": "https://www.famila-nordwest.de/",
+          "http_status": 200,
+          "title": "famila - Moin, schöne Einkaufswelt.",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_offers_page",
+          "url": "https://www.famila-nordwest.de/aktuelles/wochenangebote",
+          "final_url": "https://www.famila-nordwest.de/aktuelles/wochenangebote",
+          "http_status": 200,
+          "title": "Aktuelle Wochenangebote bei Famila",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.famila-nordwest.de/angebote/",
+          "final_url": "https://www.famila-nordwest.de/angebote/",
+          "http_status": 404,
+          "title": "Seite nicht gefunden",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.famila-nordwest.de/aktuelles/",
+          "final_url": "https://www.famila-nordwest.de/aktuelles",
+          "http_status": 200,
+          "title": "Aktuelles bei famila: Bleiben Sie informiert!",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "additional_discovered_path",
+          "url": "https://www.famila-nordwest.de/",
+          "final_url": "https://www.famila-nordwest.de/",
+          "http_status": 200,
+          "title": "famila - Moin, schöne Einkaufswelt.",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "globus",
+      "name": "GLOBUS",
+      "full_price_list_downloaded": false,
+      "price_status": "Teilpreise importiert",
+      "reason": "Alle 57 Seiten der öffentlichen Angebotsrubrik geprüft: 1.348 Artikel. Preise ohne bestätigte Markthalle; kein vollständiges Sortiment.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://produkte.globus.de/angebote-der-woche/",
+          "final_url": "https://produkte.globus.de/angebote-der-woche/",
+          "http_status": 200,
+          "title": "Angebote der Woche",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.globus.de/gruenstadt/aktuelles-prospekt.php",
+          "final_url": "https://www.globus.de/gruenstadt/aktuelles-prospekt.php",
+          "http_status": 200,
+          "title": "Aktuelle Angebote der GLOBUS Markthalle",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://produkte.globus.de/",
+          "final_url": "https://produkte.globus.de/",
+          "http_status": 200,
+          "title": "Menü",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 4,
+          "latest_price_date": "2026-09-17",
+          "reason": "4 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "hit",
+      "name": "HIT",
+      "full_price_list_downloaded": false,
+      "price_status": "Teilpreise importiert",
+      "reason": "22 öffentliche Angebotskarten importiert. Mehrere Varianten-EANs werden nicht als einzelne bestätigte EAN übernommen; Marktbezug unbestätigt.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.hit.de/angebote-coupons",
+          "final_url": "https://www.hit.de/angebote-coupons",
+          "http_status": 200,
+          "title": "Angebote & Coupons | HIT",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.hit.de/angebote.html",
+          "final_url": "https://www.hit.de/angebote",
+          "http_status": 200,
+          "title": "Aktuelle Wochenangebote | HIT",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.hit.de/",
+          "final_url": "https://www.hit.de/",
+          "http_status": 200,
+          "title": "Echte Vielfalt erleben | HIT",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 88,
+          "latest_price_date": "2026-08-19",
+          "reason": "88 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "klaus_kock",
+      "name": "K+K Klaas & Kock",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Offizielle Angebotsseite, alternative Markt-/Prospektseite und Startseite geprüft. Kein eindeutig lesbarer Product/Offer-EUR-Preisexport gefunden. Ein eigener Markt-/Prospektparser ist noch nicht umgesetzt; keine Vollpreisliste heruntergeladen.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.klaas-und-kock.de/angebote/",
+          "final_url": "https://www.klaas-und-kock.de/angebote/news/article-435.html",
+          "http_status": 200,
+          "title": "Wenn Lebensmittel, dann K+K Klaas & Kock - News - Angebote",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.klaas-und-kock.de/maerkte/",
+          "final_url": "https://www.klaas-und-kock.de/maerkte/",
+          "http_status": 404,
+          "title": "Wenn Lebensmittel, dann K+K Klaas & Kock",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.klaas-und-kock.de/",
+          "final_url": "https://www.klaas-und-kock.de/",
+          "http_status": 200,
+          "title": "Wenn Lebensmittel, dann K+K Klaas & Kock",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "kaufland",
+      "name": "Kaufland",
+      "full_price_list_downloaded": false,
+      "price_status": "Teilpreise importiert",
+      "reason": "Ausgewählte öffentliche Wochenangebote importiert; keine vollständige Sortimentsliste.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://filiale.kaufland.de/angebote.html",
+          "final_url": "https://filiale.kaufland.de/angebote.html",
+          "http_status": 200,
+          "title": "📢 Lebensmittel- und Non-Food-Angebote, Coupons, Rabatte | Kaufland",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://filiale.kaufland.de/prospekte.html",
+          "final_url": "https://filiale.kaufland.de/prospekte.html",
+          "http_status": 200,
+          "title": "📣 Aktuelle Prospekte zum Blättern: jede Woche neu! | Kaufland",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://filiale.kaufland.de/",
+          "final_url": "https://filiale.kaufland.de/",
+          "http_status": 200,
+          "title": "Angebote in meiner Nähe | Kaufland",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 392,
+          "latest_price_date": null,
+          "reason": "392 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 1013,
+          "latest_price_date": "2026-09-22",
+          "reason": "1013 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "lidl",
+      "name": "Lidl",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Öffentlichen 73-seitigen Prospekt heruntergeladen und durchsuchbar gespeichert. Einzelne PDF-Preise noch nicht zuverlässig Produkten zugeordnet; zusätzliche Marktguru-Angebote und historische Belege vorhanden.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.lidl.de/c/online-prospekte/s10005610/",
+          "final_url": "https://www.lidl.de/c/online-prospekte/s10005610/",
+          "http_status": 200,
+          "title": "Prospekte bei Lidl: Unsere Aktionsprospekte jetzt online- Lidl.de",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.lidl.de/c/lebensmittel/s10000937",
+          "final_url": "https://www.lidl.de/c/lebensmittel/s10000937",
+          "http_status": 404,
+          "title": "search",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.lidl.de/",
+          "final_url": "https://www.lidl.de/",
+          "http_status": 200,
+          "title": "Lidl lohnt sich - Lokal bei Dir vor Ort und Online",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 696,
+          "latest_price_date": null,
+          "reason": "696 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 1280,
+          "latest_price_date": "2026-10-02",
+          "reason": "1280 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": [
+        {
+          "url": "https://assets.leaflets.schwarz/leaflets/pdfs/01a0f859-c88d-7364-8dd1-8a025ed09d43/Aktionsprospekt-28-09-2026-03-10-2026-00.pdf",
+          "pages": 73,
+          "sha256": "ebb401d2f303ac1859781001c75b7681d4e532bb5061bb0e2aebb3f2cc7ef6d7",
+          "price_assignments_verified": false
+        },
+        {
+          "url": "https://assets.leaflets.schwarz/leaflets/pdfs/01a0d810-b5e7-7d12-8df7-920c1a21e768/Aktionsprospekt-05-10-2026-10-10-2026-00.pdf",
+          "pages": 69,
+          "sha256": "2eb7b57485374e0056451de9a7fd46d8f45fcf49e405fb8dbee201c24e14d5a7",
+          "price_assignments_verified": false
+        }
+      ]
+    },
+    {
+      "id": "marktkauf",
+      "name": "Marktkauf",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Die geprüften offiziellen Angebots-, Alternativ- und Startseiten lieferten: 403, 403, 403, Netzwerkfehler, Netzwerkfehler. Kein vollständiger Preisexport heruntergeladen; einzelne Drittanbieter-/Archivbelege sind davon getrennt.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.marktkauf.de/angebote/",
+          "final_url": "https://www.marktkauf.de/angebote/",
+          "http_status": 403,
+          "title": "Access Denied",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: Access Denied"
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.marktkauf.de/maerkte/",
+          "final_url": "https://www.marktkauf.de/maerkte/",
+          "http_status": 403,
+          "title": "Access Denied",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: Access Denied"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.marktkauf.de/",
+          "final_url": "https://www.marktkauf.de/",
+          "http_status": 403,
+          "title": "Access Denied",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: Access Denied"
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 8,
+          "latest_price_date": "2026-03-28",
+          "reason": "8 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "mix_markt",
+      "name": "Mix Markt",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Offizielle Angebotsseite, alternative Markt-/Prospektseite und Startseite geprüft. Kein eindeutig lesbarer Product/Offer-EUR-Preisexport gefunden. Ein eigener Markt-/Prospektparser ist noch nicht umgesetzt; keine Vollpreisliste heruntergeladen.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.mixmarkt.eu/de/germany/angebote/",
+          "final_url": "https://www.mixmarkt.eu/de/germany/angebote/",
+          "http_status": 200,
+          "title": "Aktuelle Angebote in deinem Lieblingsladen | Mixmarkt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.mixmarkt.eu/de/germany/maerkte/",
+          "final_url": "https://www.mixmarkt.eu/de/germany/maerkte/",
+          "http_status": 200,
+          "title": "Osteuropäische Spezialitäten in Ihrer Nähe | Mixmarkt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.mixmarkt.eu/",
+          "final_url": "https://www.mixmarkt.eu/de/germany/",
+          "http_status": 200,
+          "title": "Ihr Supermarkt für osteuropäische Spezialitäten | Mixmarkt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "netto",
+      "name": "Netto Marken-Discount",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Grafinger Markt 1399 ausgewählt und offiziellen 73-seitigen Prospekt heruntergeladen. Die geprüften Viewer-Hotspots liefern Bilddaten statt Produktpreise. PDF-Text allein ordnet Preise nicht zuverlässig Artikeln zu; daraus keine geratenen Preise importiert. Zusätzliche Marktguru-Angebote vorhanden.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.netto-online.de/ueber-netto/Online-Prospekte.chtm/1013",
+          "final_url": "https://www.netto-online.de/ueber-netto/Online-Prospekte.chtm/1013",
+          "http_status": 403,
+          "title": "Access Denied",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: Access Denied"
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.netto-online.de/angebote/",
+          "final_url": "https://www.netto-online.de/angebote/",
+          "http_status": 403,
+          "title": "Access Denied",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: Access Denied"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.netto-online.de/",
+          "final_url": "https://www.netto-online.de/",
+          "http_status": 403,
+          "title": "Access Denied",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: Access Denied"
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 314,
+          "latest_price_date": null,
+          "reason": "314 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 1533,
+          "latest_price_date": "2026-09-29",
+          "reason": "1533 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        },
+        {
+          "method": "shared_browser_store_selection_and_pdf",
+          "url": "https://wochenprospekt.netto-online.de/hz40_ehos_4/?storeid=1399",
+          "http_status": 200,
+          "reason": "Filiale 1399 Grafing bestätigt; PDF HTTP 200, 73 Seiten. Keine verifizierte PDF-Preiszuordnung."
+        }
+      ],
+      "downloaded_pdfs": [
+        {
+          "retailer": "Netto Marken-Discount",
+          "store_id": "1399",
+          "postal_code": "85567",
+          "source_url": "https://wochenprospekt.netto-online.de/100989/3402155/pdfs/56a955d4-49ac-437b-bb2b-80b2edf6c8a4.pdf",
+          "viewer_url": "https://wochenprospekt.netto-online.de/hz40_ehos_4/?storeid=1399",
+          "bytes": 49329127,
+          "pages": 73,
+          "sha256": "31896b48c88edbe22657a3ae889098e83b89f5714dbef197e0a5732822f03faa",
+          "downloaded": true
+        }
+      ]
+    },
+    {
+      "id": "norma",
+      "name": "NORMA",
+      "full_price_list_downloaded": false,
+      "price_status": "Teilpreise importiert",
+      "reason": "248 öffentlich lesbare Angebotskarten importiert. Teilweise ist nur ein Startdatum angegeben; ein Ablaufdatum wird nicht erfunden.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.norma-online.de/de/angebote/",
+          "final_url": "https://www.norma-online.de/de/angebote/",
+          "http_status": 200,
+          "title": "NORMA - Ihr Lebensmittel-Discounter | Angebote",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.norma-online.de/de/angebote/onlineprospekt/",
+          "final_url": "https://www.norma-online.de/de/angebote/onlineprospekt/",
+          "http_status": 200,
+          "title": "NORMA - Ihr Lebensmittel-Discounter | Online-Prospekt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.norma-online.de/",
+          "final_url": "https://www.norma-online.de/de/angebote/",
+          "http_status": 200,
+          "title": "NORMA - Ihr Lebensmittel-Discounter | Angebote",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 55,
+          "latest_price_date": "2026-10-02",
+          "reason": "55 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "penny",
+      "name": "PENNY",
+      "full_price_list_downloaded": false,
+      "price_status": "Teilpreise importiert",
+      "reason": "Regionale Angebote aus der öffentlichen Händlerschnittstelle für drei Märkte bei 85567 importiert. Keine vollständigen Regalpreise.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.penny.de/angebote",
+          "final_url": "https://www.penny.de/angebote",
+          "http_status": 200,
+          "title": "Angebote & Prospekt der Woche | PENNY.de",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.penny.de/angebote/prospekt",
+          "final_url": "https://www.penny.de/angebote/prospekt",
+          "http_status": 404,
+          "title": "Nicht gefunden | PENNY.de",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.penny.de/",
+          "final_url": "https://www.penny.de/",
+          "http_status": 200,
+          "title": "Penny: Dein Lebensmittel-Discounter | PENNY.de",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 239,
+          "latest_price_date": null,
+          "reason": "239 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 245,
+          "latest_price_date": "2026-10-01",
+          "reason": "245 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "rewe",
+      "name": "REWE",
+      "full_price_list_downloaded": false,
+      "price_status": "Teilpreise importiert",
+      "reason": "Grafing, Markt 461766: 312 bepreiste Artikel im gemeinsamen Browser erfasst. Der Serverabruf erhält 403/Menschprüfung. Dies sind Wochenangebote, kein vollständiger Onlineshop.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.rewe.de/angebote/grafing/461766/rewe-leonhardstr-5-a/",
+          "final_url": "https://www.rewe.de/angebote/grafing/461766/rewe-leonhardstr-5-a/",
+          "http_status": 403,
+          "title": "REWE Onlineshop: Lebensmittel & mehr im Online-Supermarkt!",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: captcha"
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.rewe.de/shop/",
+          "final_url": "https://www.rewe.de/shop/",
+          "http_status": 403,
+          "title": "REWE Onlineshop: Lebensmittel & mehr im Online-Supermarkt!",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: captcha"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.rewe.de/",
+          "final_url": "https://www.rewe.de/",
+          "http_status": 403,
+          "title": "REWE Onlineshop: Lebensmittel & mehr im Online-Supermarkt!",
+          "structured_prices": 0,
+          "reason": "HTTP 403; page marker: captcha"
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 284,
+          "latest_price_date": null,
+          "reason": "284 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 1620,
+          "latest_price_date": "2026-10-02",
+          "reason": "1620 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "netto_dog",
+      "name": "Netto mit Hund",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Prospektseite erreichbar, aber keine einzelnen strukturierten Produktpreise im geprüften HTML. Viewer-Parser noch erforderlich; generische Netto-Belege werden dieser Kette nicht zugewiesen.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://netto.de/prospekte/",
+          "final_url": "https://netto.de/prospekte/",
+          "http_status": 200,
+          "title": "Netto Prospekt der Woche",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://netto.de/angebote/",
+          "final_url": "https://netto.de/angebote/",
+          "http_status": 200,
+          "title": "Netto Angebote – Wöchentlich sparen",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://netto.de/",
+          "final_url": "https://netto.de/",
+          "http_status": 200,
+          "title": "Netto - GÜNSTIG.BESSER.FÜR DICH",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "tegut",
+      "name": "tegut",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Öffentlichen Prospekt heruntergeladen; räumliche Preis-/Produktzuordnung noch nicht verifiziert. Zusätzliche historische Preisbelege vorhanden.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://mittelhessen.tegut.com/",
+          "final_url": "https://mittelhessen.tegut.com/tegut_flugblatt_kw40-2026_he_ni_rp-9adqoq9lldmv/",
+          "http_status": 200,
+          "title": "tegut... Flugblatt KW 40/2026 Mittelhessen - Seite 1",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://baden-wuerttemberg.tegut.com/",
+          "final_url": "https://baden-wuerttemberg.tegut.com/tegut_flugblatt_kw40-2026_he_ni_rp-vp_6x679bdo6/",
+          "http_status": 200,
+          "title": "tegut... Flugblatt KW 40/2026 Baden-Württemberg - Seite 1",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.tegut.com/angebote.html",
+          "final_url": "https://www.tegut.com/angebote-produkte/angebote.html",
+          "http_status": 200,
+          "title": "Aktuelle Angebote & Prospekte bei tegut... | Jede Woche neu entdecken | tegut...",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 75,
+          "latest_price_date": "2026-08-31",
+          "reason": "75 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": [
+        {
+          "url": "https://view.publitas.com/93620/3379249/pdfs/1b4a2a7e-774e-497d-a80e-a34e7d2d334c.pdf",
+          "pages": 28,
+          "sha256": "2cdc733c262b28fc7b53ea407c31dea8b362a193646e584121066d65fc28882c",
+          "price_assignments_verified": false
+        }
+      ]
+    },
+    {
+      "id": "v_markt",
+      "name": "V-Markt",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Öffentliche Angebots-/Marktseiten geprüft; kein eindeutiger strukturierter Preisexport übernommen. Historische Preisbelege sind gesondert verfügbar.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.v-markt.de/angebote/",
+          "final_url": "https://www.v-markt.de/angebote",
+          "http_status": 200,
+          "title": "Angebote - V-Markt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.v-markt.de/maerkte/",
+          "final_url": "https://www.v-markt.de/maerkte",
+          "http_status": 200,
+          "title": "Unsere Marktübersicht - V-Markt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.v-markt.de/",
+          "final_url": "https://www.v-markt.de/",
+          "http_status": 200,
+          "title": "V-Markt - Große Vielfalt - kleine Preise - V-Markt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 67,
+          "latest_price_date": "2026-08-08",
+          "reason": "67 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "wasgau",
+      "name": "WASGAU",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Aktueller Blätterprospekt über 1kcloud erreichbar. Keine strukturierten Product/Offer-Preise in den geprüften Seiten; Viewer-Parser noch nicht umgesetzt.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.wasgau.de/angebote/",
+          "final_url": "https://www.wasgau.de/angebote/",
+          "http_status": 200,
+          "title": "Angebote | WASGAU AG",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.wasgau.de/maerkte/",
+          "final_url": "https://www.wasgau.de/maerkte/",
+          "http_status": 200,
+          "title": "Marktauswahl ▻ Finden Sie jetzt Ihren WASGAU-Markt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.wasgau.de/",
+          "final_url": "https://www.wasgau.de/",
+          "http_status": 200,
+          "title": "WASGAU AG ➤ Weil die Menschen von hier uns wichtig sind",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_offers_page",
+          "url": "https://wasgau-dlog.1kcloud.com/ep1rP1V0/",
+          "final_url": "https://wasgau-dlog.1kcloud.com/ep1rP1V0/",
+          "http_status": 200,
+          "title": "WASGAU Prospekt ab 28.09.",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.wasgau.de/angebote/",
+          "final_url": "https://www.wasgau.de/angebote/",
+          "http_status": 200,
+          "title": "Angebote | WASGAU AG",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.wasgau.de/maerkte/",
+          "final_url": "https://www.wasgau.de/maerkte/",
+          "http_status": 200,
+          "title": "Marktauswahl ▻ Finden Sie jetzt Ihren WASGAU-Markt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "additional_discovered_path",
+          "url": "https://www.wasgau.de/",
+          "final_url": "https://www.wasgau.de/",
+          "http_status": 200,
+          "title": "WASGAU AG ➤ Weil die Menschen von hier uns wichtig sind",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "nahkauf",
+      "name": "nahkauf",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Offizielle Angebotsseite, alternative Markt-/Prospektseite und Startseite geprüft. Kein eindeutig lesbarer Product/Offer-EUR-Preisexport gefunden. Ein eigener Markt-/Prospektparser ist noch nicht umgesetzt; keine Vollpreisliste heruntergeladen.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.nahkauf.de/angebote",
+          "final_url": "https://www.nahkauf.de/angebote",
+          "http_status": 404,
+          "title": "",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.nahkauf.de/maerkte",
+          "final_url": "https://www.nahkauf.de/maerkte/",
+          "http_status": 404,
+          "title": "",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.nahkauf.de/",
+          "final_url": "https://www.nahkauf.de/",
+          "http_status": 200,
+          "title": "Nahkauf - Nichts liegt näher",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 101,
+          "latest_price_date": "2026-09-21",
+          "reason": "101 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "markant",
+      "name": "Markant",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Öffentliche Seiten geprüft; Markt-/Prospektdarstellung liefert noch keinen übernommenen strukturierten Preisexport. Marktbezogener Parser erforderlich.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.markant-online.de/angebote/",
+          "final_url": "https://www.markant-online.de/block/angebote-kw40/",
+          "http_status": 200,
+          "title": "Angebote kw40 • Markant",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.markant-online.de/maerkte/",
+          "final_url": "https://www.markant-online.de/maerkte/",
+          "http_status": 404,
+          "title": "Page Not Found • Markant",
+          "structured_prices": 0,
+          "reason": "HTTP 404; page marker: captcha"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.markant-online.de/",
+          "final_url": "https://www.markant-online.de/",
+          "http_status": 200,
+          "title": "Markant - freu dich drauf! | Startseite",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 19,
+          "latest_price_date": "2025-04-11",
+          "reason": "19 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "konsum_dresden",
+      "name": "Konsum Dresden",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Offiziellen KW40-PDF-Prospekt heruntergeladen. Preise sind überwiegend grafisch; noch keine verifizierte Zuordnung zu Artikeln.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.konsum.de/angebote/",
+          "final_url": "https://www.konsum.de/angebote/",
+          "http_status": 200,
+          "title": "KONSUM DRESDEN eG | Hier ist Heimat.",
+          "structured_prices": 0,
+          "pdf_candidates": [
+            "https://konsum-dev.de/content-website/wp-content/uploads/2026/09/KONSUM_DRESDEN_Angebote-der-Woche-KW40_2026.pdf"
+          ],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.konsum.de/wochenangebote/",
+          "final_url": "https://www.konsum.de/wochenangebote/",
+          "http_status": 404,
+          "title": "KONSUM DRESDEN eG - 404 Nicht gefunden",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.konsum.de/",
+          "final_url": "https://www.konsum.de/",
+          "http_status": 200,
+          "title": "KONSUM DRESDEN eG | Hier ist Heimat.",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 2,
+          "latest_price_date": "2024-12-13",
+          "reason": "2 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": [
+        {
+          "url": "https://konsum-dev.de/content-website/wp-content/uploads/2026/09/KONSUM_DRESDEN_Angebote-der-Woche-KW40_2026.pdf",
+          "sha256": "c4e41c9464e1d978fc3fc7e1dbff92e894c29f1b70f096a9ad734093df4af1dc",
+          "bytes": 7424167,
+          "pages": 12,
+          "price_mentions": 1,
+          "price_assignments_verified": false
+        }
+      ]
+    },
+    {
+      "id": "konsum_leipzig",
+      "name": "Konsum Leipzig",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Offiziellen KW40-PDF-Prospekt heruntergeladen. Keine eindeutig zuordenbaren Produktpreise im extrahierten Text; visueller Parser noch erforderlich.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.konsum-leipzig.de/angebote/",
+          "final_url": "https://www.konsum-leipzig.de/angebote/",
+          "http_status": 404,
+          "title": "Konsum Leipzig",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.konsum-leipzig.de/maerkte/",
+          "final_url": "https://www.konsum-leipzig.de/maerkte/",
+          "http_status": 200,
+          "title": "Märkte",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.konsum-leipzig.de/",
+          "final_url": "https://www.konsum-leipzig.de/",
+          "http_status": 200,
+          "title": "Konsum Leipzig",
+          "structured_prices": 0,
+          "pdf_candidates": [
+            "https://www.konsum-leipzig.de/media/pdf/21/f6/86/KW-40-LVZ-small.pdf"
+          ],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": [
+        {
+          "url": "https://www.konsum-leipzig.de/media/pdf/21/f6/86/KW-40-LVZ-small.pdf",
+          "sha256": "70ad9d9c635e1b25bd8d50ce076bf2600246ddad4a7413fbc2cc0877c288373b",
+          "bytes": 5763612,
+          "pages": 1,
+          "price_mentions": 0,
+          "price_assignments_verified": false
+        }
+      ]
+    },
+    {
+      "id": "lpg",
+      "name": "LPG BioMarkt",
+      "full_price_list_downloaded": false,
+      "price_status": "Keine aktuellen Direktpreise importiert",
+      "reason": "Offizielle Angebotsseite, alternative Markt-/Prospektseite und Startseite geprüft. Kein eindeutig lesbarer Product/Offer-EUR-Preisexport gefunden. Ein eigener Markt-/Prospektparser ist noch nicht umgesetzt; keine Vollpreisliste heruntergeladen.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.lpg-biomarkt.de/angebote/",
+          "final_url": "https://www.lpg-biomarkt.de/angebote/",
+          "http_status": 200,
+          "title": "Angebote | LPG Biomarkt",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.lpg-biomarkt.de/maerkte/",
+          "final_url": "https://www.lpg-biomarkt.de/maerkte/",
+          "http_status": 404,
+          "title": "Seite nicht gefunden | LPG Biomarkt",
+          "structured_prices": 0,
+          "reason": "HTTP 404"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.lpg-biomarkt.de/",
+          "final_url": "https://www.lpg-biomarkt.de/",
+          "http_status": 200,
+          "title": "LPG Biomarkt | Willkommen im Bio-Paradies",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 2,
+          "latest_price_date": "2024-03-16",
+          "reason": "2 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "dm",
+      "name": "dm",
+      "full_price_list_downloaded": false,
+      "price_status": "Teilpreise importiert",
+      "reason": "Öffentliche Produktsuche mit expliziten EANs und Onlinepreisen importiert. Fortsetzung in begrenzten Batches; HTTP 429 führt zu Abkühlpause. Lokale Filialpreise nicht garantiert.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.dm.de/ernaehrung",
+          "final_url": "https://www.dm.de/ernaehrung",
+          "http_status": 200,
+          "title": "dm-drogerie markt - dauerhaft günstig online kaufen",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.dm.de/angebote",
+          "final_url": "https://www.dm.de/angebote",
+          "http_status": 200,
+          "title": "dm-drogerie markt - dauerhaft günstig online kaufen",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.dm.de/",
+          "final_url": "https://www.dm.de/",
+          "http_status": 200,
+          "title": "dm-drogerie markt - dauerhaft günstig online kaufen",
+          "structured_prices": 0,
+          "pdf_candidates": [],
+          "reason": "Page accessible; no unambiguous Product/Offer EUR prices in JSON-LD. Regional selection or a site-specific renderer may be required."
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 0,
+          "latest_price_date": null,
+          "reason": "0 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 230,
+          "latest_price_date": "2026-09-15",
+          "reason": "230 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        }
+      ],
+      "downloaded_pdfs": []
+    },
+    {
+      "id": "rossmann",
+      "name": "ROSSMANN",
+      "full_price_list_downloaded": false,
+      "price_status": "Teilpreise importiert",
+      "reason": "4705 Online-Produktkarten über 138 Seiten im Browser erfasst; Angebotsrubrik bis zur letzten Seite erfasst. Der HTTP-Abruf erhält Client Challenge/403. Nach Abbruch der T3-Verbindung konnte ein frischer Browser den öffentlichen Abruf fortsetzen. Keine vollständige Sortimentspreisliste; Filialpreise unbestätigt. URL-Artikelnummern werden ohne Beleg nicht als EAN übernommen.",
+      "attempts": [
+        {
+          "method": "official_offers_page",
+          "url": "https://www.rossmann.de/de/angebote",
+          "final_url": "https://www.rossmann.de/de/angebote",
+          "http_status": 403,
+          "title": "",
+          "structured_prices": 0,
+          "reason": "HTTP 403"
+        },
+        {
+          "method": "alternative_shop_or_leaflet",
+          "url": "https://www.rossmann.de/de/lebensmittel/c/olcat1_5",
+          "final_url": "https://www.rossmann.de/de/lebensmittel/c/olcat1_5",
+          "http_status": 403,
+          "title": "",
+          "structured_prices": 0,
+          "reason": "HTTP 403"
+        },
+        {
+          "method": "official_site",
+          "url": "https://www.rossmann.de/",
+          "final_url": "https://www.rossmann.de/de/",
+          "http_status": 403,
+          "title": "",
+          "structured_prices": 0,
+          "reason": "HTTP 403"
+        },
+        {
+          "method": "imported_marktguru_api_results",
+          "url": "https://api.marktguru.de/api/v1/offers/search",
+          "scope": "existing_imported_dataset_check",
+          "records": 255,
+          "latest_price_date": null,
+          "reason": "255 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Angebotsaggregator für 85567; keine Vollpreisliste und keine bestätigten EANs."
+        },
+        {
+          "method": "imported_open_prices_api_results",
+          "url": "https://prices.openfoodfacts.org/api/v1/prices/",
+          "scope": "existing_imported_dataset_check",
+          "records": 274,
+          "latest_price_date": "2026-10-01",
+          "reason": "274 eindeutig dieser Kette zugeordnete importierte Preisbelege gefunden. Community-Preise verschiedener Orte und Daten; keine vollständige aktuelle Filialpreisliste."
+        },
+        {
+          "method": "shared_browser_product_cards",
+          "url": "https://www.rossmann.de/de/angebote/m/angebote",
+          "reason": "312 lesbare Produktkarten, dreizehn Seiten; Teilabruf."
+        },
+        {
+          "method": "fresh_browser_public_price_cards",
+          "url": "https://www.rossmann.de/de/angebote/m/angebote",
+          "reason": "4705 Karten, 138 Seiten; Angebotsrubrik bis zur letzten Seite erfasst. Keine Konto-/Sitzungsdaten verwendet."
+        }
+      ],
+      "downloaded_pdfs": []
+    }
+  ]
+}

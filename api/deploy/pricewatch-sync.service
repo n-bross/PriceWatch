@@ -1,0 +1,12 @@
+[Unit]
+Description=Track PriceWatch source changes and recheck receipt discrepancies
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=@API_DIR@
+EnvironmentFile=@API_DIR@/.env
+ExecStart=@API_DIR@/.venv/bin/python -m pricewatch_api.cli track
+TimeoutStartSec=840
+UMask=0077

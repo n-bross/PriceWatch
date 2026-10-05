@@ -1,0 +1,14 @@
+[Unit]
+Description=Sync explicit dated EDEKA public offers
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=@API_DIR@
+EnvironmentFile=@API_DIR@/.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=@API_DIR@/.venv/bin/python scripts/sync_edeka_offers.py
+TimeoutStartSec=840
+Nice=10
+UMask=0077

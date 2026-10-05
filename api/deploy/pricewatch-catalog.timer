@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly PriceWatch product catalog refresh
+
+[Timer]
+OnCalendar=Sun *-*-* 04:00:00 Europe/Berlin
+RandomizedDelaySec=15m
+Persistent=true
+Unit=pricewatch-catalog-e70d379d.service
+
+[Install]
+WantedBy=timers.target

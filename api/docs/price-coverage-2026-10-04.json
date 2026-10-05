@@ -1,0 +1,795 @@
+{
+  "checked_at": "2026-10-04T19:30:00.913893+02:00",
+  "price_day_berlin": "2026-10-04",
+  "database": "/opt/t3code/worktrees/PriceWatch/t3code-e70d379d/api/pricewatch.db",
+  "retailers": [
+    {
+      "id": "aldi_sued",
+      "name": "ALDI Süd",
+      "direct_articles": 24,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 923,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Angebotsauszug; derzeit keine nach dem strengen Stichtagskriterium aktuellen Direktpreise.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "aldi_nord",
+      "name": "ALDI Nord",
+      "direct_articles": 525,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 817,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Angebotsauszug; derzeit keine nach dem strengen Stichtagskriterium aktuellen Direktpreise.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "alnatura",
+      "name": "Alnatura",
+      "direct_articles": 13,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 15,
+      "direct_observations": 26,
+      "last_observation_by_source": {
+        "alnatura_website": "2026-10-04"
+      },
+      "full_assortment_percentage": null,
+      "note": "Teilangebote; gespeicherte Datierung am Stichtag abgelaufen oder zukünftig.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "bio_company",
+      "name": "Bio Company",
+      "direct_articles": 97,
+      "current_evidence_articles": 97,
+      "valid_dated_articles": 97,
+      "observed_today_articles": 97,
+      "direct_observations": 492,
+      "last_observation_by_source": {
+        "bio_company_website": "2026-10-04"
+      },
+      "full_assortment_percentage": null,
+      "note": "Teilangebote, keine Sortimentsliste.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "cap",
+      "name": "CAP-Markt",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 298,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "combi",
+      "name": "Combi",
+      "direct_articles": 12159,
+      "current_evidence_articles": 12159,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 12159,
+      "third_party_observations": 1,
+      "direct_observations": 12434,
+      "last_observation_by_source": {
+        "combi_website": "2026-10-04"
+      },
+      "full_assortment_percentage": null,
+      "note": "12,159 von 12,219 aktuellen Sitemap-Produktseiten mit gespeichertem Preis; 60 fehlen, davon 57 Fehler im Checkpoint.",
+      "source_coverage_percentage": 99.5089614534741
+    },
+    {
+      "id": "denns",
+      "name": "Denns BioMarkt",
+      "direct_articles": 89,
+      "current_evidence_articles": 89,
+      "valid_dated_articles": 89,
+      "observed_today_articles": 89,
+      "third_party_observations": 11,
+      "direct_observations": 186,
+      "last_observation_by_source": {
+        "denns_website": "2026-10-04"
+      },
+      "full_assortment_percentage": null,
+      "note": "Teilangebote, keine Sortimentsliste.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "diska",
+      "name": "diska",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "edeka",
+      "name": "EDEKA",
+      "direct_articles": 41,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 4181,
+      "direct_observations": 41,
+      "last_observation_by_source": {
+        "edeka_browser": "2026-10-04"
+      },
+      "full_assortment_percentage": null,
+      "note": "Browser-Preisvarianten; Direktjob zuletzt HTTP 403. Die heute erneut geprüfte Registry-Seite lieferte HTTP 200; das belegt keinen erfolgreichen Import.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "feneberg",
+      "name": "Feneberg",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 55,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "famila_nordost",
+      "name": "famila Nordost",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "famila_nordwest",
+      "name": "famila Nordwest",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "globus",
+      "name": "GLOBUS",
+      "direct_articles": 58985,
+      "current_evidence_articles": 58985,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 58985,
+      "third_party_observations": 4,
+      "direct_observations": 61682,
+      "last_observation_by_source": {
+        "globus_website": "2026-10-04"
+      },
+      "full_assortment_percentage": null,
+      "note": "2.913/2.913 entdeckte Seiten bearbeitet; 57.637 Artikel im abgeschlossenen Durchlauf. Kein unabhängiger Gesamtproduktzähler; zusätzliche ältere Angebotsimporte erklären 58.985 Quellartikel.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "hit",
+      "name": "HIT",
+      "direct_articles": 45,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 155,
+      "direct_observations": 67,
+      "last_observation_by_source": {
+        "hit_website": "2026-10-04"
+      },
+      "full_assortment_percentage": null,
+      "note": "Teilangebote; gespeicherte Datierung am Stichtag abgelaufen oder zukünftig.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "klaus_kock",
+      "name": "K+K Klaas & Kock",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "kaufland",
+      "name": "Kaufland",
+      "direct_articles": 76,
+      "current_evidence_articles": 71,
+      "valid_dated_articles": 71,
+      "observed_today_articles": 0,
+      "third_party_observations": 2508,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Teilangebote, keine Sortimentsliste.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "lidl",
+      "name": "Lidl",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 3578,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "marktkauf",
+      "name": "Marktkauf",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 8,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "mix_markt",
+      "name": "Mix Markt",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "netto",
+      "name": "Netto Marken-Discount",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 2775,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "norma",
+      "name": "NORMA",
+      "direct_articles": 251,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 90,
+      "direct_observations": 729,
+      "last_observation_by_source": {
+        "retailer_website_v2": "2026-10-04"
+      },
+      "full_assortment_percentage": null,
+      "note": "Teilangebote; häufig fehlt ein Enddatum. Null im strengen Aktualitätskriterium bedeutet nicht, dass alle Preise im Laden ungültig sind.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "penny",
+      "name": "PENNY",
+      "direct_articles": 647,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 962,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Angebotsartikel über drei Filialen nach Artikel-ID zusammengefasst; keine Vollsortimentspreise.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "rewe",
+      "name": "REWE",
+      "direct_articles": 318,
+      "current_evidence_articles": 312,
+      "valid_dated_articles": 312,
+      "observed_today_articles": 0,
+      "third_party_observations": 38651,
+      "direct_observations": 312,
+      "last_observation_by_source": {
+        "rewe_browser": "2026-10-02"
+      },
+      "full_assortment_percentage": null,
+      "note": "312 Browserartikel plus 6 manuelle Rechercheeinträge (quellenübergreifende Überschneidung möglich). Kein rewe_shop_pickup-Import in der laufenden Datenbank. 595 Abholangebote nur in separater Testdatenbank.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "netto_dog",
+      "name": "Netto mit Hund",
+      "direct_articles": 257,
+      "current_evidence_articles": 31,
+      "valid_dated_articles": 31,
+      "observed_today_articles": 31,
+      "direct_observations": 293,
+      "last_observation_by_source": {
+        "netto_dog_website": "2026-10-04"
+      },
+      "full_assortment_percentage": null,
+      "note": "Teilangebote; getrennt von Netto Marken-Discount.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "tegut",
+      "name": "tegut",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 75,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "v_markt",
+      "name": "V-Markt",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 115,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "wasgau",
+      "name": "WASGAU",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "nahkauf",
+      "name": "nahkauf",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 246,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "markant",
+      "name": "Markant",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 19,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "konsum_dresden",
+      "name": "Konsum Dresden",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 2,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "konsum_leipzig",
+      "name": "Konsum Leipzig",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "lpg",
+      "name": "LPG BioMarkt",
+      "direct_articles": 0,
+      "current_evidence_articles": 0,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 0,
+      "third_party_observations": 2,
+      "last_observation_by_source": {},
+      "full_assortment_percentage": null,
+      "note": "Kein Direktpreisimport vorhanden; gegebenenfalls nur externe/historische Preisbeobachtungen.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "dm",
+      "name": "dm",
+      "direct_articles": 9029,
+      "current_evidence_articles": 2342,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 2342,
+      "third_party_observations": 2039,
+      "direct_observations": 10477,
+      "last_observation_by_source": {
+        "dm_website": "2026-10-04"
+      },
+      "full_assortment_percentage": null,
+      "note": "9,029 Quellartikel mit gespeichertem Preis / 21,838 aktuell gemeldete Suchtreffer = ca. 41.35 %. Näherung, da die Mitgliedschaft aller alten IDs im heutigen Katalog nicht vollständig neu geprüft wurde.",
+      "source_coverage_percentage": 41.345361296822055
+    },
+    {
+      "id": "rossmann",
+      "name": "ROSSMANN",
+      "direct_articles": 3254,
+      "current_evidence_articles": 483,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 483,
+      "third_party_observations": 854,
+      "direct_observations": 3737,
+      "last_observation_by_source": {
+        "rossmann_browser": "2026-10-04"
+      },
+      "full_assortment_percentage": null,
+      "note": "Online-Teilpreise; Angebote und Lebensmittelrubrik. Angebotscrawler nach 21 Seiten blockiert; keine verifizierte Gesamtzahl.",
+      "source_coverage_percentage": null
+    },
+    {
+      "id": "mytime",
+      "name": "myTime",
+      "direct_articles": 12334,
+      "current_evidence_articles": 12246,
+      "valid_dated_articles": 0,
+      "observed_today_articles": 12246,
+      "direct_observations": 24881,
+      "last_observation_by_source": {
+        "mytime_website": "2026-10-04"
+      },
+      "full_assortment_percentage": null,
+      "note": "256/256 Listenseiten im letzten Durchlauf bearbeitet, 12.246 Artikel im Checkpoint. Kein unabhängiger Gesamtproduktzähler. Registry-Einstiegslink HTTP 404; kein Beleg für den Ausfall des gesamten Importers.",
+      "source_coverage_percentage": null
+    }
+  ],
+  "http_checks": [
+    {
+      "id": "aldi_sued",
+      "url": "https://www.aldi-sued.de/angebote",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:43.328825+02:00"
+    },
+    {
+      "id": "aldi_nord",
+      "url": "https://www.aldi-nord.de/angebote.html",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:42.919115+02:00"
+    },
+    {
+      "id": "alnatura",
+      "url": "https://www.alnatura.de/maerkte/angebote-vorschau",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.335627+02:00"
+    },
+    {
+      "id": "bio_company",
+      "url": "https://www.biocompany.de/neuigkeiten/angebote.html",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:43.007228+02:00"
+    },
+    {
+      "id": "cap",
+      "url": "https://cap-markt.de/angebote/",
+      "status": 404,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:43.926429+02:00"
+    },
+    {
+      "id": "combi",
+      "url": "https://www.combi.de/prospekt-angebote_220012750.html",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:43.912560+02:00"
+    },
+    {
+      "id": "denns",
+      "url": "https://www.biomarkt.de/angebote",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:43.440501+02:00"
+    },
+    {
+      "id": "diska",
+      "url": "https://diska.de/prospekt/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:43.561671+02:00"
+    },
+    {
+      "id": "edeka",
+      "url": "https://www.edeka.de/angebote/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:43.710388+02:00"
+    },
+    {
+      "id": "feneberg",
+      "url": "https://www.feneberg.de/angebote/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:44.303824+02:00"
+    },
+    {
+      "id": "famila_nordost",
+      "url": "https://www.famila-nordost.de/angebote/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:44.907981+02:00"
+    },
+    {
+      "id": "famila_nordwest",
+      "url": "https://www.famila-nordwest.de/aktuelles/wochenangebote",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:44.305527+02:00"
+    },
+    {
+      "id": "globus",
+      "url": "https://produkte.globus.de/angebote-der-woche/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:44.833072+02:00"
+    },
+    {
+      "id": "hit",
+      "url": "https://www.hit.de/angebote-coupons",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:44.610463+02:00"
+    },
+    {
+      "id": "klaus_kock",
+      "url": "https://www.klaas-und-kock.de/angebote/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.205017+02:00"
+    },
+    {
+      "id": "kaufland",
+      "url": "https://filiale.kaufland.de/angebote.html",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.108055+02:00"
+    },
+    {
+      "id": "lidl",
+      "url": "https://www.lidl.de/c/online-prospekte/s10005610/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.221652+02:00"
+    },
+    {
+      "id": "marktkauf",
+      "url": "https://www.marktkauf.de/angebote/",
+      "status": 403,
+      "challenge_marker": true,
+      "checked_at": "2026-10-04T19:29:45.311991+02:00"
+    },
+    {
+      "id": "mix_markt",
+      "url": "https://www.mixmarkt.eu/de/germany/angebote/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.505989+02:00"
+    },
+    {
+      "id": "netto",
+      "url": "https://www.netto-online.de/ueber-netto/Online-Prospekte.chtm/1013",
+      "status": 403,
+      "challenge_marker": true,
+      "checked_at": "2026-10-04T19:29:45.422363+02:00"
+    },
+    {
+      "id": "norma",
+      "url": "https://www.norma-online.de/de/angebote/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.611697+02:00"
+    },
+    {
+      "id": "penny",
+      "url": "https://www.penny.de/angebote",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.633479+02:00"
+    },
+    {
+      "id": "rewe",
+      "url": "https://www.rewe.de/angebote/grafing/461766/rewe-leonhardstr-5-a/",
+      "status": 403,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.645206+02:00"
+    },
+    {
+      "id": "netto_dog",
+      "url": "https://netto.de/prospekte/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.711939+02:00"
+    },
+    {
+      "id": "tegut",
+      "url": "https://mittelhessen.tegut.com/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.960467+02:00"
+    },
+    {
+      "id": "v_markt",
+      "url": "https://www.v-markt.de/angebote/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.835529+02:00"
+    },
+    {
+      "id": "wasgau",
+      "url": "https://wasgau-dlog.1kcloud.com/ep1rP1V0/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.908076+02:00"
+    },
+    {
+      "id": "nahkauf",
+      "url": "https://www.nahkauf.de/angebote",
+      "status": 404,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.752544+02:00"
+    },
+    {
+      "id": "markant",
+      "url": "https://www.markant-online.de/angebote/",
+      "status": null,
+      "error": "ReadTimeout"
+    },
+    {
+      "id": "konsum_dresden",
+      "url": "https://www.konsum.de/angebote/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:45.965542+02:00"
+    },
+    {
+      "id": "konsum_leipzig",
+      "url": "https://www.konsum-leipzig.de/angebote/",
+      "status": 404,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:46.438819+02:00"
+    },
+    {
+      "id": "lpg",
+      "url": "https://www.lpg-biomarkt.de/angebote/",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:46.436550+02:00"
+    },
+    {
+      "id": "dm",
+      "url": "https://www.dm.de/ernaehrung",
+      "status": 200,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:46.072505+02:00"
+    },
+    {
+      "id": "rossmann",
+      "url": "https://www.rossmann.de/de/angebote",
+      "status": 403,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:46.106197+02:00"
+    },
+    {
+      "id": "mytime",
+      "url": "https://www.mytime.de/lebensmittel_10000000.html",
+      "status": 404,
+      "challenge_marker": false,
+      "checked_at": "2026-10-04T19:29:46.566013+02:00"
+    }
+  ],
+  "methodology": {
+    "direct_article_identity": "(source, source_product_id); fallback source URL + name; PENNY branch sources collapsed; cross-source duplicates remain possible",
+    "current_evidence": "Explicit valid_from <= 2026-10-04 <= valid_until OR observed on 2026-10-04 without contradictory validity; price_catalog also requires is_listed",
+    "third_party": "Separate raw observations from marktguru, open_prices, german_supermarket_prices, rewe_price_data; not current unique products",
+    "excluded": "Receipt-derived rows, ambiguous chain labels and unrelated merchants are not assigned to one of the 35 registered chains",
+    "scope": "Counts across stored stores/channels, not prices for every product in one specific physical store",
+    "live_changes": "Import services remained running; figures are a read-only SQLite transaction snapshot before HTTP checks"
+  },
+  "source_metrics": [
+    {
+      "retailer": "combi",
+      "metric": "Aktuelle Sitemap-Produktseiten mit mindestens einem gespeicherten Direktpreis",
+      "numerator": 12159,
+      "denominator": 12219,
+      "percentage": 99.5089614534741,
+      "source_url": "https://www.combi.de/sitemaps/combi/sitemap.produkte.xml",
+      "full_chain_assortment": false
+    },
+    {
+      "retailer": "dm",
+      "metric": "Gespeicherte Direktpreis-Artikel / gemeldete aktuelle Onlinesuchtreffer (Näherung)",
+      "numerator": 9029,
+      "denominator": 21838,
+      "percentage": 41.345361296822055,
+      "source_url": "https://product-search.services.dmtech.com/de/search?query=&pageSize=1&currentPage=0",
+      "full_chain_assortment": false
+    },
+    {
+      "retailer": "rewe",
+      "metric": "Nur separate Testdatenbank: erfasste rabattierte Abholartikel für Markt 461766",
+      "numerator": 595,
+      "denominator": 595,
+      "percentage": 100,
+      "source_url": "https://www.rewe.de/shop/api/products?serviceTypes=PICKUP&marketId=461766&attribute=discounted",
+      "full_chain_assortment": false
+    }
+  ],
+  "rewe_unfiltered_search": {
+    "reported_results": 10000,
+    "note": "10,000 may be a search result cap; not accepted as verified full assortment size",
+    "url": "https://www.rewe.de/shop/api/products?serviceTypes=PICKUP&marketId=461766"
+  },
+  "unassigned_observations_total": 15432,
+  "source_id_counts": {
+    "dm_website": 9029,
+    "rewe_browser": 312,
+    "edeka_browser": 41,
+    "hit_website": 45,
+    "globus_website": 58985,
+    "combi_website": 12159,
+    "retailer_website_v2": 251,
+    "rossmann_browser": 3254,
+    "bio_company_website": 97,
+    "denns_website": 89,
+    "alnatura_website": 13,
+    "netto_dog_website": 257,
+    "mytime_website": 12334
+  }
+}
