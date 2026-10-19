@@ -1,85 +1,43 @@
-# PriceWatch — Setup (Phase 0)
+# PriceWatch — Technisches Setup-Handbuch
 
-Anleitung für das Einrichten auf dem Mac. Diese Schritte kann Claude Code auf dem Mac
-weitgehend selbst ausführen — die mit **[Mensch]** markierten Schritte brauchen einen
-Browser-Login und müssen manuell gemacht werden.
+Kurzanleitung zur lokalen Einrichtung von **PriceWatch** mit Xcode und einem eigenen Supabase-Projekt.
 
-## Was Phase 0 ist
+## 1. Supabase-Projekt erstellen
 
-Einkaufslisten-App (AnyList-Stil) mit Supabase-Backend: E-Mail-OTP-Login, Listen +
-Items mit Realtime-Sync zwischen Geräten. Angebots-Features (Supermarkt-Prospekte)
-folgen in späteren Phasen — siehe Roadmap unten.
-
-## Schritte
-
-### 1. [Mensch] Supabase-Projekt anlegen
-
-1. Auf https://supabase.com einloggen/registrieren, neues Projekt anlegen
-   (Region: EU, z.B. Frankfurt).
-2. Unter *Project Settings → API* kopieren:
+1. Erstelle auf [supabase.com](https://supabase.com) ein neues Projekt (z. B. Region `eu-central-1` / Frankfurt).
+2. Kopiere unter **Project Settings → API**:
    - **Project URL** (`https://<ref>.supabase.co`)
    - **anon public key**
 
-### 2. Datenbank-Migration einspielen
+## 2. Datenbank-Migrationen ausführen
 
-Entweder per Supabase CLI:
+Entweder über die Supabase CLI:
 
 ```bash
 brew install supabase/tap/supabase
-supabase login          # [Mensch] öffnet Browser
+supabase login
 supabase link --project-ref <ref>
 supabase db push
 ```
 
-…oder einfacher: Inhalt von `supabase/migrations/0001_init.sql` im Supabase-Dashboard
-unter *SQL Editor* einfügen und ausführen.
+Oder manuell im **SQL Editor** des Supabase-Dashboards in dieser Reihenfolge:
+1. `supabase/migrations/0001_init.sql`
+2. `supabase/migrations/0002_fix_rls_and_item_price.sql`
+3. `supabase/migrations/0003_offers.sql`
 
-Danach unter *Authentication → Providers → Email* prüfen, dass Email-Login aktiv ist
-(OTP/Magic-Link ist Standard).
+Stelle anschließend unter **Authentication → Providers → Email** sicher, dass der E-Mail-OTP-Login aktiviert ist.
 
-### 3. Xcode-Projekt konfigurieren
+## 3. Xcode-Konfiguration (`Supabase.xcconfig`)
 
-1. **SPM-Package hinzufügen:** `https://github.com/supabase/supabase-swift`,
-   Produkt `Supabase`, zum Target `PriceWatch`.
-   (In Xcode: File → Add Package Dependencies. Per CLI/pbxproj-Edit auch möglich.)
-2. **Neue Dateien einbinden:** Die Ordner `PriceWatch/Core`, `PriceWatch/Models`,
-   `PriceWatch/Features` müssen ins Xcode-Projekt aufgenommen werden
-   (Add Files to "PriceWatch"…, Target-Häkchen bei PriceWatch). Das Projekt nutzt
-   das klassische pbxproj-Format (objectVersion 56), neue Dateien werden also
-   NICHT automatisch aufgenommen. Alternative: Gruppen auf
-   "File System Synchronized" umstellen oder pbxproj direkt editieren.
-3. **Konfiguration:**
-   - `Config/Supabase.xcconfig.example` → nach `Config/Supabase.xcconfig` kopieren,
-     Werte aus Schritt 1 eintragen (Datei ist gitignored).
-   - Im Projekt (Project → Info → Configurations) `Supabase.xcconfig` für Debug
-     und Release zuweisen.
-   - Im Target unter Info zwei Info.plist-Einträge anlegen:
-     `SUPABASE_URL = $(SUPABASE_URL)` und `SUPABASE_ANON_KEY = $(SUPABASE_ANON_KEY)`.
+1. Kopiere die Vorlage:
+   ```bash
+   cp Config/Supabase.xcconfig.example Config/Supabase.xcconfig
+   ```
+2. Trage `SUPABASE_URL` und `SUPABASE_ANON_KEY` in `Config/Supabase.xcconfig` ein (diese Datei wird von Git ignoriert).
+3. Weise `Supabase.xcconfig` in Xcode unter **Project → Info → Configurations** für `Debug` und `Release` zu.
 
-### 4. Bauen und testen
+## 4. Architektur-Roadmap
 
-```bash
-xcodebuild -project PriceWatch.xcodeproj -scheme PriceWatch \
-  -destination 'platform=iOS Simulator,name=iPhone 15' build
-```
-
-Build-Fehler sind hier erwartbar (der Swift-Code wurde auf einem Linux-Server ohne
-Xcode geschrieben und noch nie kompiliert) — insbesondere können sich die
-supabase-swift-APIs (Realtime `postgresChange`, `signInWithOTP`, `AnyJSON`) je nach
-SDK-Version leicht unterscheiden. Fehler direkt fixen.
-
-**Fertig-Kriterium (manuell im Simulator durchspielen):**
-
-1. App starten → E-Mail eingeben → Code aus der Mail eintippen → eingeloggt.
-2. Liste erstellen, Item hinzufügen, Item abhaken.
-3. App beenden und neu starten → Stand ist noch da (kommt aus Supabase).
-4. Zweiten Simulator mit demselben Account starten → Änderungen erscheinen live
-   ohne Refresh (Realtime).
-
-## Roadmap (Kontext)
-
-- **Phase 0 (dieses Setup):** iOS-Grundgerüst + Supabase-Sync ✓ Code geschrieben
-- **Phase 1:** Web-App (Next.js + supabase-js) gegen dasselbe Backend → `/web`
-- **Phase 2:** Angebots-Ingestion (Python-Worker, Marktguru-Quelle) + Browse-Screen → `/worker`
-- **Phase 3:** Fuzzy-Matching Listen-Items ↔ Angebote (pg_trgm), "im Angebot"-Badges
-- **Phase 4:** PDF-Prospekt-Pipeline mit Vision-LLM für nicht abgedeckte Händler
+- **Phase 1 (Abgeschlossen):** Native SwiftUI-App mit E-Mail-OTP-Authentifizierung, Echtzeit-Einkaufslisten und Row-Level Security.
+- **Phase 2 (Abgeschlossen):** Angebots-Datenmodell (`offers`), Händler-Filterung und Preisvergleichs-Ansicht.
+- **Phase 3 (Geplant):** Automatisierter Angebots-Worker & unscharfer Artikelabgleich (`pg_trgm`) zwischen Einkaufsliste und aktuellen Wochenangeboten.
